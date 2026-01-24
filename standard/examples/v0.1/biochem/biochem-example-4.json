@@ -1,0 +1,94 @@
+{
+  "id": "panel-biochem-004",
+  "resource_type": "panel",
+  "standard_version": "0.1",
+  "panel_code": {
+    "system": "MEDLABS-PANEL",
+    "code": "BIOCHEM",
+    "display": "Biochemistry Panel"
+  },
+  "panel_name": "Biochemistry Panel",
+  "status": "final",
+  "collected_at": "2024-12-20T07:15:00Z",
+  "reported_at": "2024-12-20T11:05:00Z",
+  "specimen": {
+    "type": "Serum",
+    "collected_at": "2024-12-20T07:15:00Z",
+    "specimen_id": "S-124781"
+  },
+  "observations": [
+    {
+      "id": "obs-bio-004-hbsag",
+      "resource_type": "observation",
+      "code": {
+        "system": "LOCAL",
+        "code": "HBSAG",
+        "display": "Hepatitis B surface antigen"
+      },
+      "value": "Negative",
+      "reference_range": {
+        "text": "Negative"
+      },
+      "status": "final",
+      "effective_time": "2024-12-20T07:15:00Z",
+      "source": {
+        "document_id": "LAB-2024-12-20-401",
+        "lab_name": "MetroLab",
+        "report_date": "2024-12-20",
+        "page": 2,
+        "line": 18
+      }
+    },
+    {
+      "id": "obs-bio-004-anti_hcv",
+      "resource_type": "observation",
+      "code": {
+        "system": "LOCAL",
+        "code": "ANTI_HCV",
+        "display": "Hepatitis C antibody"
+      },
+      "value": "Reactive",
+      "reference_range": {
+        "text": "Non-reactive"
+      },
+      "interpretation": "abnormal",
+      "status": "final",
+      "effective_time": "2024-12-20T07:15:00Z",
+      "source": {
+        "document_id": "LAB-2024-12-20-401",
+        "lab_name": "MetroLab",
+        "report_date": "2024-12-20",
+        "page": 2,
+        "line": 19,
+        "raw_text": "Anti-HCV: Reactive"
+      }
+    },
+    {
+      "id": "obs-bio-004-hemolysis",
+      "resource_type": "observation",
+      "code": {
+        "system": "LOCAL",
+        "code": "HEMOLYSIS_INDEX",
+        "display": "Hemolysis index"
+      },
+      "value": null,
+      "status": "final",
+      "effective_time": "2024-12-20T07:15:00Z",
+      "source": {
+        "document_id": "LAB-2024-12-20-401",
+        "lab_name": "MetroLab",
+        "report_date": "2024-12-20",
+        "page": 2,
+        "line": 20
+      }
+    }
+  ],
+  "source": {
+    "document_id": "LAB-2024-12-20-401",
+    "lab_name": "MetroLab",
+    "report_date": "2024-12-20",
+    "page": 2,
+    "line": 14,
+    "raw_text": "Biochemistry Panel"
+  }
+}

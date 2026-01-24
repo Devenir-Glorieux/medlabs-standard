@@ -1,0 +1,189 @@
+{
+  "id": "panel-biochem-003",
+  "resource_type": "panel",
+  "standard_version": "0.1",
+  "panel_code": {
+    "system": "MEDLABS-PANEL",
+    "code": "BIOCHEM",
+    "display": "Biochemistry Panel"
+  },
+  "panel_name": "Biochemistry Panel",
+  "status": "final",
+  "collected_at": "2024-11-18T08:25:00Z",
+  "reported_at": "2024-11-18T12:40:00Z",
+  "specimen": {
+    "type": "Serum",
+    "collected_at": "2024-11-18T08:25:00Z",
+    "specimen_id": "S-118442"
+  },
+  "observations": [
+    {
+      "id": "obs-bio-003-crea",
+      "resource_type": "observation",
+      "code": {
+        "system": "LOINC",
+        "code": "2160-0",
+        "display": "Creatinine [Moles/volume] in Serum or Plasma"
+      },
+      "value": {
+        "value": 180.0,
+        "unit_code": "umol/L",
+        "unit_system": "UCUM",
+        "unit_display": "umol/L"
+      },
+      "reference_range": {
+        "low": {
+          "value": 62.0,
+          "unit_code": "umol/L",
+          "unit_system": "UCUM",
+          "unit_display": "umol/L"
+        },
+        "high": {
+          "value": 106.0,
+          "unit_code": "umol/L",
+          "unit_system": "UCUM",
+          "unit_display": "umol/L"
+        }
+      },
+      "interpretation": "high",
+      "status": "final",
+      "effective_time": "2024-11-18T08:25:00Z",
+      "source": {
+        "document_id": "LAB-2024-11-18-311",
+        "lab_name": "Riverbank Lab",
+        "report_date": "2024-11-18",
+        "page": 1,
+        "line": 10,
+        "raw_text": "Creatinine 180 umol/L (62-106)"
+      }
+    },
+    {
+      "id": "obs-bio-003-urea",
+      "resource_type": "observation",
+      "code": {
+        "system": "LOINC",
+        "code": "3094-0",
+        "display": "Urea nitrogen [Moles/volume] in Serum or Plasma"
+      },
+      "value": {
+        "value": 11.5,
+        "unit_code": "mmol/L",
+        "unit_system": "UCUM",
+        "unit_display": "mmol/L"
+      },
+      "reference_range": {
+        "low": {
+          "value": 2.8,
+          "unit_code": "mmol/L",
+          "unit_system": "UCUM",
+          "unit_display": "mmol/L"
+        },
+        "high": {
+          "value": 7.2,
+          "unit_code": "mmol/L",
+          "unit_system": "UCUM",
+          "unit_display": "mmol/L"
+        }
+      },
+      "interpretation": "high",
+      "status": "final",
+      "effective_time": "2024-11-18T08:25:00Z",
+      "source": {
+        "document_id": "LAB-2024-11-18-311",
+        "lab_name": "Riverbank Lab",
+        "report_date": "2024-11-18",
+        "page": 1,
+        "line": 11,
+        "raw_text": "Urea 11.5 mmol/L (2.8-7.2)"
+      }
+    },
+    {
+      "id": "obs-bio-003-na",
+      "resource_type": "observation",
+      "code": {
+        "system": "LOINC",
+        "code": "2951-2",
+        "display": "Sodium [Moles/volume] in Serum or Plasma"
+      },
+      "value": {
+        "value": 138.0,
+        "unit_code": "mmol/L",
+        "unit_system": "UCUM",
+        "unit_display": "mmol/L"
+      },
+      "reference_range": {
+        "low": {
+          "value": 135.0,
+          "unit_code": "mmol/L",
+          "unit_system": "UCUM",
+          "unit_display": "mmol/L"
+        },
+        "high": {
+          "value": 145.0,
+          "unit_code": "mmol/L",
+          "unit_system": "UCUM",
+          "unit_display": "mmol/L"
+        }
+      },
+      "interpretation": "normal",
+      "status": "final",
+      "effective_time": "2024-11-18T08:25:00Z",
+      "source": {
+        "document_id": "LAB-2024-11-18-311",
+        "lab_name": "Riverbank Lab",
+        "report_date": "2024-11-18",
+        "page": 1,
+        "line": 12,
+        "raw_text": "Sodium 138 mmol/L (135-145)"
+      }
+    },
+    {
+      "id": "obs-bio-003-k",
+      "resource_type": "observation",
+      "code": {
+        "system": "LOINC",
+        "code": "2823-3",
+        "display": "Potassium [Moles/volume] in Serum or Plasma"
+      },
+      "value": {
+        "value": 5.6,
+        "unit_code": "mmol/L",
+        "unit_system": "UCUM",
+        "unit_display": "mmol/L"
+      },
+      "reference_range": {
+        "low": {
+          "value": 3.5,
+          "unit_code": "mmol/L",
+          "unit_system": "UCUM",
+          "unit_display": "mmol/L"
+        },
+        "high": {
+          "value": 5.1,
+          "unit_code": "mmol/L",
+          "unit_system": "UCUM",
+          "unit_display": "mmol/L"
+        }
+      },
+      "interpretation": "high",
+      "status": "final",
+      "effective_time": "2024-11-18T08:25:00Z",
+      "source": {
+        "document_id": "LAB-2024-11-18-311",
+        "lab_name": "Riverbank Lab",
+        "report_date": "2024-11-18",
+        "page": 1,
+        "line": 13,
+        "raw_text": "Potassium 5.6 mmol/L (3.5-5.1)"
+      }
+    }
+  ],
+  "source": {
+    "document_id": "LAB-2024-11-18-311",
+    "lab_name": "Riverbank Lab",
+    "report_date": "2024-11-18",
+    "page": 1,
+    "line": 6,
+    "raw_text": "Biochemistry Panel"
+  }
+}

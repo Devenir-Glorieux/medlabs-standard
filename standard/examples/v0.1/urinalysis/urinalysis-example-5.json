@@ -1,0 +1,114 @@
+{
+  "id": "panel-urine-005",
+  "resource_type": "panel",
+  "standard_version": "0.1",
+  "panel_code": {
+    "system": "MEDLABS-PANEL",
+    "code": "URINALYSIS",
+    "display": "Urinalysis Panel"
+  },
+  "panel_name": "Urinalysis Panel",
+  "status": "final",
+  "collected_at": "2025-01-15T08:35:00Z",
+  "reported_at": "2025-01-15T10:00:00Z",
+  "specimen": {
+    "type": "Urine",
+    "collected_at": "2025-01-15T08:35:00Z",
+    "specimen_id": "U-702118"
+  },
+  "observations": [
+    {
+      "id": "obs-urine-005-protein",
+      "resource_type": "observation",
+      "code": {
+        "system": "LOCAL",
+        "code": "PROTEIN",
+        "display": "Protein"
+      },
+      "value": "1+",
+      "reference_range": {
+        "text": "Negative"
+      },
+      "interpretation": "abnormal",
+      "status": "final",
+      "effective_time": "2025-01-15T08:35:00Z",
+      "source": {
+        "document_id": "LAB-2025-01-15-512",
+        "lab_name": "MedLab Central",
+        "report_date": "2025-01-15",
+        "page": 1,
+        "line": 10
+      }
+    },
+    {
+      "id": "obs-urine-005-leu",
+      "resource_type": "observation",
+      "code": {
+        "system": "LOCAL",
+        "code": "LEUK_ESTERASE",
+        "display": "Leukocyte esterase"
+      },
+      "value": "Trace",
+      "reference_range": {
+        "text": "Negative"
+      },
+      "interpretation": "abnormal",
+      "status": "final",
+      "effective_time": "2025-01-15T08:35:00Z",
+      "source": {
+        "document_id": "LAB-2025-01-15-512",
+        "lab_name": "MedLab Central",
+        "report_date": "2025-01-15",
+        "page": 1,
+        "line": 11
+      }
+    },
+    {
+      "id": "obs-urine-005-nitrite",
+      "resource_type": "observation",
+      "code": {
+        "system": "LOCAL",
+        "code": "NITRITE",
+        "display": "Nitrite"
+      },
+      "value": null,
+      "status": "final",
+      "effective_time": "2025-01-15T08:35:00Z",
+      "source": {
+        "document_id": "LAB-2025-01-15-512",
+        "lab_name": "MedLab Central",
+        "report_date": "2025-01-15",
+        "page": 1,
+        "line": 12,
+        "raw_text": "Nitrite: --"
+      }
+    },
+    {
+      "id": "obs-urine-005-epithelial",
+      "resource_type": "observation",
+      "code": {
+        "system": "LOCAL",
+        "code": "EPITHELIAL",
+        "display": "Epithelial cells"
+      },
+      "value": "Moderate",
+      "status": "final",
+      "effective_time": "2025-01-15T08:35:00Z",
+      "source": {
+        "document_id": "LAB-2025-01-15-512",
+        "lab_name": "MedLab Central",
+        "report_date": "2025-01-15",
+        "page": 1,
+        "line": 13
+      }
+    }
+  ],
+  "source": {
+    "document_id": "LAB-2025-01-15-512",
+    "lab_name": "MedLab Central",
+    "report_date": "2025-01-15",
+    "page": 1,
+    "line": 6,
+    "raw_text": "Urinalysis"
+  }
+}

@@ -1,0 +1,249 @@
+{
+  "id": "panel-urine-001",
+  "resource_type": "panel",
+  "standard_version": "0.1",
+  "panel_code": {
+    "system": "MEDLABS-PANEL",
+    "code": "URINALYSIS",
+    "display": "Urinalysis Panel"
+  },
+  "panel_name": "Urinalysis Panel",
+  "status": "final",
+  "collected_at": "2024-06-14T07:20:00Z",
+  "reported_at": "2024-06-14T09:00:00Z",
+  "specimen": {
+    "type": "Urine",
+    "collected_at": "2024-06-14T07:20:00Z",
+    "specimen_id": "U-440201"
+  },
+  "observations": [
+    {
+      "id": "obs-urine-001-color",
+      "resource_type": "observation",
+      "code": {
+        "system": "LOCAL",
+        "code": "COLOR",
+        "display": "Color"
+      },
+      "value": "Yellow",
+      "status": "final",
+      "effective_time": "2024-06-14T07:20:00Z",
+      "source": {
+        "document_id": "LAB-2024-06-14-501",
+        "lab_name": "MedLab Central",
+        "report_date": "2024-06-14",
+        "page": 1,
+        "line": 9,
+        "raw_text": "Color: Yellow"
+      }
+    },
+    {
+      "id": "obs-urine-001-appearance",
+      "resource_type": "observation",
+      "code": {
+        "system": "LOCAL",
+        "code": "APPEARANCE",
+        "display": "Appearance"
+      },
+      "value": "Clear",
+      "status": "final",
+      "effective_time": "2024-06-14T07:20:00Z",
+      "source": {
+        "document_id": "LAB-2024-06-14-501",
+        "lab_name": "MedLab Central",
+        "report_date": "2024-06-14",
+        "page": 1,
+        "line": 10,
+        "raw_text": "Appearance: Clear"
+      }
+    },
+    {
+      "id": "obs-urine-001-sg",
+      "resource_type": "observation",
+      "code": {
+        "system": "LOCAL",
+        "code": "SPEC_GRAV",
+        "display": "Specific gravity"
+      },
+      "value": {
+        "value": 1.015,
+        "unit_code": "1",
+        "unit_system": "UCUM",
+        "unit_display": "SG"
+      },
+      "reference_range": {
+        "low": {
+          "value": 1.005,
+          "unit_code": "1",
+          "unit_system": "UCUM",
+          "unit_display": "SG"
+        },
+        "high": {
+          "value": 1.030,
+          "unit_code": "1",
+          "unit_system": "UCUM",
+          "unit_display": "SG"
+        }
+      },
+      "interpretation": "normal",
+      "status": "final",
+      "effective_time": "2024-06-14T07:20:00Z",
+      "source": {
+        "document_id": "LAB-2024-06-14-501",
+        "lab_name": "MedLab Central",
+        "report_date": "2024-06-14",
+        "page": 1,
+        "line": 11,
+        "raw_text": "Specific gravity 1.015 (1.005-1.030)"
+      }
+    },
+    {
+      "id": "obs-urine-001-ph",
+      "resource_type": "observation",
+      "code": {
+        "system": "LOCAL",
+        "code": "PH",
+        "display": "pH"
+      },
+      "value": {
+        "value": 6.0,
+        "unit_code": "1",
+        "unit_system": "UCUM",
+        "unit_display": "pH"
+      },
+      "reference_range": {
+        "low": {
+          "value": 5.0,
+          "unit_code": "1",
+          "unit_system": "UCUM",
+          "unit_display": "pH"
+        },
+        "high": {
+          "value": 8.0,
+          "unit_code": "1",
+          "unit_system": "UCUM",
+          "unit_display": "pH"
+        }
+      },
+      "interpretation": "normal",
+      "status": "final",
+      "effective_time": "2024-06-14T07:20:00Z",
+      "source": {
+        "document_id": "LAB-2024-06-14-501",
+        "lab_name": "MedLab Central",
+        "report_date": "2024-06-14",
+        "page": 1,
+        "line": 12,
+        "raw_text": "pH 6.0 (5.0-8.0)"
+      }
+    },
+    {
+      "id": "obs-urine-001-protein",
+      "resource_type": "observation",
+      "code": {
+        "system": "LOCAL",
+        "code": "PROTEIN",
+        "display": "Protein"
+      },
+      "value": "Negative",
+      "status": "final",
+      "effective_time": "2024-06-14T07:20:00Z",
+      "source": {
+        "document_id": "LAB-2024-06-14-501",
+        "lab_name": "MedLab Central",
+        "report_date": "2024-06-14",
+        "page": 1,
+        "line": 13,
+        "raw_text": "Protein: Negative"
+      }
+    },
+    {
+      "id": "obs-urine-001-glucose",
+      "resource_type": "observation",
+      "code": {
+        "system": "LOCAL",
+        "code": "GLUCOSE",
+        "display": "Glucose"
+      },
+      "value": "Negative",
+      "status": "final",
+      "effective_time": "2024-06-14T07:20:00Z",
+      "source": {
+        "document_id": "LAB-2024-06-14-501",
+        "lab_name": "MedLab Central",
+        "report_date": "2024-06-14",
+        "page": 1,
+        "line": 14,
+        "raw_text": "Glucose: Negative"
+      }
+    },
+    {
+      "id": "obs-urine-001-ketones",
+      "resource_type": "observation",
+      "code": {
+        "system": "LOCAL",
+        "code": "KETONES",
+        "display": "Ketones"
+      },
+      "value": "Negative",
+      "status": "final",
+      "effective_time": "2024-06-14T07:20:00Z",
+      "source": {
+        "document_id": "LAB-2024-06-14-501",
+        "lab_name": "MedLab Central",
+        "report_date": "2024-06-14",
+        "page": 1,
+        "line": 15,
+        "raw_text": "Ketones: Negative"
+      }
+    },
+    {
+      "id": "obs-urine-001-leu",
+      "resource_type": "observation",
+      "code": {
+        "system": "LOCAL",
+        "code": "LEUK_ESTERASE",
+        "display": "Leukocyte esterase"
+      },
+      "value": "Negative",
+      "status": "final",
+      "effective_time": "2024-06-14T07:20:00Z",
+      "source": {
+        "document_id": "LAB-2024-06-14-501",
+        "lab_name": "MedLab Central",
+        "report_date": "2024-06-14",
+        "page": 1,
+        "line": 16,
+        "raw_text": "Leukocyte esterase: Negative"
+      }
+    },
+    {
+      "id": "obs-urine-001-nitrite",
+      "resource_type": "observation",
+      "code": {
+        "system": "LOCAL",
+        "code": "NITRITE",
+        "display": "Nitrite"
+      },
+      "value": "Negative",
+      "status": "final",
+      "effective_time": "2024-06-14T07:20:00Z",
+      "source": {
+        "document_id": "LAB-2024-06-14-501",
+        "lab_name": "MedLab Central",
+        "report_date": "2024-06-14",
+        "page": 1,
+        "line": 17,
+        "raw_text": "Nitrite: Negative"
+      }
+    }
+  ],
+  "source": {
+    "document_id": "LAB-2024-06-14-501",
+    "lab_name": "MedLab Central",
+    "report_date": "2024-06-14",
+    "page": 1,
+    "line": 6,
+    "raw_text": "Urinalysis"
+  }
+}

@@ -1,0 +1,189 @@
+{
+  "id": "panel-cbc-003",
+  "resource_type": "panel",
+  "standard_version": "0.1",
+  "panel_code": {
+    "system": "MEDLABS-PANEL",
+    "code": "CBC",
+    "display": "Complete Blood Count"
+  },
+  "panel_name": "Complete Blood Count",
+  "status": "final",
+  "collected_at": "2024-10-10T09:05:00Z",
+  "reported_at": "2024-10-10T13:20:00Z",
+  "specimen": {
+    "type": "Venous blood",
+    "collected_at": "2024-10-10T09:05:00Z",
+    "specimen_id": "S-114507"
+  },
+  "observations": [
+    {
+      "id": "obs-cbc-003-wbc",
+      "resource_type": "observation",
+      "code": {
+        "system": "LOINC",
+        "code": "6690-2",
+        "display": "Leukocytes [#/volume] in Blood"
+      },
+      "value": {
+        "value": 14.8,
+        "unit_code": "10*9/L",
+        "unit_system": "UCUM",
+        "unit_display": "10^9/L"
+      },
+      "reference_range": {
+        "low": {
+          "value": 4.0,
+          "unit_code": "10*9/L",
+          "unit_system": "UCUM",
+          "unit_display": "10^9/L"
+        },
+        "high": {
+          "value": 10.0,
+          "unit_code": "10*9/L",
+          "unit_system": "UCUM",
+          "unit_display": "10^9/L"
+        }
+      },
+      "interpretation": "high",
+      "status": "final",
+      "effective_time": "2024-10-10T09:05:00Z",
+      "source": {
+        "document_id": "LAB-2024-10-10-003",
+        "lab_name": "CityLab",
+        "report_date": "2024-10-10",
+        "page": 1,
+        "line": 11,
+        "raw_text": "WBC 14.8 x10^9/L (4.0-10.0)"
+      }
+    },
+    {
+      "id": "obs-cbc-003-neut",
+      "resource_type": "observation",
+      "code": {
+        "system": "LOINC",
+        "code": "751-8",
+        "display": "Neutrophils [#/volume] in Blood by Automated count"
+      },
+      "value": {
+        "value": 10.9,
+        "unit_code": "10*9/L",
+        "unit_system": "UCUM",
+        "unit_display": "10^9/L"
+      },
+      "reference_range": {
+        "low": {
+          "value": 1.5,
+          "unit_code": "10*9/L",
+          "unit_system": "UCUM",
+          "unit_display": "10^9/L"
+        },
+        "high": {
+          "value": 7.5,
+          "unit_code": "10*9/L",
+          "unit_system": "UCUM",
+          "unit_display": "10^9/L"
+        }
+      },
+      "interpretation": "high",
+      "status": "final",
+      "effective_time": "2024-10-10T09:05:00Z",
+      "source": {
+        "document_id": "LAB-2024-10-10-003",
+        "lab_name": "CityLab",
+        "report_date": "2024-10-10",
+        "page": 1,
+        "line": 12,
+        "raw_text": "Neutrophils abs 10.9 x10^9/L (1.5-7.5)"
+      }
+    },
+    {
+      "id": "obs-cbc-003-hgb",
+      "resource_type": "observation",
+      "code": {
+        "system": "LOINC",
+        "code": "718-7",
+        "display": "Hemoglobin [Mass/volume] in Blood"
+      },
+      "value": {
+        "value": 13.2,
+        "unit_code": "g/dL",
+        "unit_system": "UCUM",
+        "unit_display": "g/dL"
+      },
+      "reference_range": {
+        "low": {
+          "value": 12.0,
+          "unit_code": "g/dL",
+          "unit_system": "UCUM",
+          "unit_display": "g/dL"
+        },
+        "high": {
+          "value": 16.0,
+          "unit_code": "g/dL",
+          "unit_system": "UCUM",
+          "unit_display": "g/dL"
+        }
+      },
+      "interpretation": "normal",
+      "status": "final",
+      "effective_time": "2024-10-10T09:05:00Z",
+      "source": {
+        "document_id": "LAB-2024-10-10-003",
+        "lab_name": "CityLab",
+        "report_date": "2024-10-10",
+        "page": 1,
+        "line": 13,
+        "raw_text": "HGB 13.2 g/dL (12.0-16.0)"
+      }
+    },
+    {
+      "id": "obs-cbc-003-plt",
+      "resource_type": "observation",
+      "code": {
+        "system": "LOINC",
+        "code": "777-3",
+        "display": "Platelets [#/volume] in Blood"
+      },
+      "value": {
+        "value": 380.0,
+        "unit_code": "10*9/L",
+        "unit_system": "UCUM",
+        "unit_display": "10^9/L"
+      },
+      "reference_range": {
+        "low": {
+          "value": 150.0,
+          "unit_code": "10*9/L",
+          "unit_system": "UCUM",
+          "unit_display": "10^9/L"
+        },
+        "high": {
+          "value": 400.0,
+          "unit_code": "10*9/L",
+          "unit_system": "UCUM",
+          "unit_display": "10^9/L"
+        }
+      },
+      "interpretation": "normal",
+      "status": "final",
+      "effective_time": "2024-10-10T09:05:00Z",
+      "source": {
+        "document_id": "LAB-2024-10-10-003",
+        "lab_name": "CityLab",
+        "report_date": "2024-10-10",
+        "page": 1,
+        "line": 14,
+        "raw_text": "PLT 380 x10^9/L (150-400)"
+      }
+    }
+  ],
+  "source": {
+    "document_id": "LAB-2024-10-10-003",
+    "lab_name": "CityLab",
+    "report_date": "2024-10-10",
+    "page": 1,
+    "line": 8,
+    "raw_text": "Complete Blood Count"
+  }
+}

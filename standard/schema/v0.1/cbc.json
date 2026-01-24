@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://medlabs.standard/schema/v0.1/cbc.json",
+  "title": "Complete Blood Count Panel",
+  "type": "object",
+  "allOf": [
+    { "$ref": "./core.json#/$defs/Panel" },
+    {
+      "type": "object",
+      "properties": {
+        "panel_code": {
+          "allOf": [
+            { "$ref": "./core.json#/$defs/Coding" },
+            {
+              "type": "object",
+              "properties": {
+                "system": { "const": "MEDLABS-PANEL" },
+                "code": { "const": "CBC" },
+                "display": { "const": "Complete Blood Count" }
+              },
+              "required": ["system", "code", "display"]
+            }
+          ]
+        },
+        "panel_name": { "const": "Complete Blood Count" },
+        "observations": {
+          "type": "array",
+          "items": {
+            "allOf": [
+              { "$ref": "./core.json#/$defs/Observation" },
+              {
+                "if": {
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": "object",
+                      "required": ["unit_code"],
+                      "properties": {
+                        "unit_code": { "type": "string" }
+                      }
+                    }
+                  },
+                  "required": ["value"]
+                },
+                "then": {
+                  "properties": {
+                    "value": {
+                      "properties": {
+                        "unit_code": {
+                          "enum": ["10*9/L", "10*12/L", "g/dL", "%", "fL"]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

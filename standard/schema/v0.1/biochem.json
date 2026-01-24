@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://medlabs.standard/schema/v0.1/biochem.json",
+  "title": "Biochemistry Panel",
+  "type": "object",
+  "allOf": [
+    { "$ref": "./core.json#/$defs/Panel" },
+    {
+      "type": "object",
+      "properties": {
+        "panel_code": {
+          "allOf": [
+            { "$ref": "./core.json#/$defs/Coding" },
+            {
+              "type": "object",
+              "properties": {
+                "system": { "const": "MEDLABS-PANEL" },
+                "code": { "const": "BIOCHEM" },
+                "display": { "const": "Biochemistry Panel" }
+              },
+              "required": ["system", "code", "display"]
+            }
+          ]
+        },
+        "panel_name": { "const": "Biochemistry Panel" }
+      }
+    }
+  ]
+}

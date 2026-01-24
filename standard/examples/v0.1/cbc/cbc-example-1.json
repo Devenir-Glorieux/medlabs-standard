@@ -1,0 +1,229 @@
+{
+  "id": "panel-cbc-001",
+  "resource_type": "panel",
+  "standard_version": "0.1",
+  "panel_code": {
+    "system": "MEDLABS-PANEL",
+    "code": "CBC",
+    "display": "Complete Blood Count"
+  },
+  "panel_name": "Complete Blood Count",
+  "status": "final",
+  "collected_at": "2024-08-13T08:15:00Z",
+  "reported_at": "2024-08-13T12:30:00Z",
+  "specimen": {
+    "type": "Venous blood",
+    "collected_at": "2024-08-13T08:15:00Z",
+    "specimen_id": "S-883920"
+  },
+  "observations": [
+    {
+      "id": "obs-cbc-001-wbc",
+      "resource_type": "observation",
+      "code": {
+        "system": "LOINC",
+        "code": "6690-2",
+        "display": "Leukocytes [#/volume] in Blood"
+      },
+      "value": {
+        "value": 5.4,
+        "unit_code": "10*9/L",
+        "unit_system": "UCUM",
+        "unit_display": "10^9/L"
+      },
+      "reference_range": {
+        "low": {
+          "value": 4.0,
+          "unit_code": "10*9/L",
+          "unit_system": "UCUM",
+          "unit_display": "10^9/L"
+        },
+        "high": {
+          "value": 10.0,
+          "unit_code": "10*9/L",
+          "unit_system": "UCUM",
+          "unit_display": "10^9/L"
+        }
+      },
+      "interpretation": "normal",
+      "status": "final",
+      "effective_time": "2024-08-13T08:15:00Z",
+      "source": {
+        "document_id": "LAB-2024-08-13-001",
+        "lab_name": "MedLab Central",
+        "report_date": "2024-08-13",
+        "page": 1,
+        "line": 12,
+        "raw_text": "WBC 5.4 x10^9/L (4.0-10.0)"
+      }
+    },
+    {
+      "id": "obs-cbc-001-rbc",
+      "resource_type": "observation",
+      "code": {
+        "system": "LOINC",
+        "code": "789-8",
+        "display": "Erythrocytes [#/volume] in Blood"
+      },
+      "value": {
+        "value": 4.65,
+        "unit_code": "10*12/L",
+        "unit_system": "UCUM",
+        "unit_display": "10^12/L"
+      },
+      "reference_range": {
+        "low": {
+          "value": 4.2,
+          "unit_code": "10*12/L",
+          "unit_system": "UCUM",
+          "unit_display": "10^12/L"
+        },
+        "high": {
+          "value": 5.6,
+          "unit_code": "10*12/L",
+          "unit_system": "UCUM",
+          "unit_display": "10^12/L"
+        }
+      },
+      "interpretation": "normal",
+      "status": "final",
+      "effective_time": "2024-08-13T08:15:00Z",
+      "source": {
+        "document_id": "LAB-2024-08-13-001",
+        "lab_name": "MedLab Central",
+        "report_date": "2024-08-13",
+        "page": 1,
+        "line": 13,
+        "raw_text": "RBC 4.65 x10^12/L (4.2-5.6)"
+      }
+    },
+    {
+      "id": "obs-cbc-001-hgb",
+      "resource_type": "observation",
+      "code": {
+        "system": "LOINC",
+        "code": "718-7",
+        "display": "Hemoglobin [Mass/volume] in Blood"
+      },
+      "value": {
+        "value": 14.1,
+        "unit_code": "g/dL",
+        "unit_system": "UCUM",
+        "unit_display": "g/dL"
+      },
+      "reference_range": {
+        "low": {
+          "value": 13.0,
+          "unit_code": "g/dL",
+          "unit_system": "UCUM",
+          "unit_display": "g/dL"
+        },
+        "high": {
+          "value": 17.0,
+          "unit_code": "g/dL",
+          "unit_system": "UCUM",
+          "unit_display": "g/dL"
+        }
+      },
+      "interpretation": "normal",
+      "status": "final",
+      "effective_time": "2024-08-13T08:15:00Z",
+      "source": {
+        "document_id": "LAB-2024-08-13-001",
+        "lab_name": "MedLab Central",
+        "report_date": "2024-08-13",
+        "page": 1,
+        "line": 14,
+        "raw_text": "HGB 14.1 g/dL (13.0-17.0)"
+      }
+    },
+    {
+      "id": "obs-cbc-001-hct",
+      "resource_type": "observation",
+      "code": {
+        "system": "LOINC",
+        "code": "4544-3",
+        "display": "Hematocrit [Volume Fraction] of Blood"
+      },
+      "value": {
+        "value": 42.0,
+        "unit_code": "%",
+        "unit_system": "UCUM",
+        "unit_display": "%"
+      },
+      "reference_range": {
+        "low": {
+          "value": 39.0,
+          "unit_code": "%",
+          "unit_system": "UCUM",
+          "unit_display": "%"
+        },
+        "high": {
+          "value": 50.0,
+          "unit_code": "%",
+          "unit_system": "UCUM",
+          "unit_display": "%"
+        }
+      },
+      "interpretation": "normal",
+      "status": "final",
+      "effective_time": "2024-08-13T08:15:00Z",
+      "source": {
+        "document_id": "LAB-2024-08-13-001",
+        "lab_name": "MedLab Central",
+        "report_date": "2024-08-13",
+        "page": 1,
+        "line": 15,
+        "raw_text": "HCT 42.0 % (39.0-50.0)"
+      }
+    },
+    {
+      "id": "obs-cbc-001-plt",
+      "resource_type": "observation",
+      "code": {
+        "system": "LOINC",
+        "code": "777-3",
+        "display": "Platelets [#/volume] in Blood"
+      },
+      "value": {
+        "value": 250.0,
+        "unit_code": "10*9/L",
+        "unit_system": "UCUM",
+        "unit_display": "10^9/L"
+      },
+      "reference_range": {
+        "low": {
+          "value": 150.0,
+          "unit_code": "10*9/L",
+          "unit_system": "UCUM",
+          "unit_display": "10^9/L"
+        },
+        "high": {
+          "value": 400.0,
+          "unit_code": "10*9/L",
+          "unit_system": "UCUM",
+          "unit_display": "10^9/L"
+        }
+      },
+      "interpretation": "normal",
+      "status": "final",
+      "effective_time": "2024-08-13T08:15:00Z",
+      "source": {
+        "document_id": "LAB-2024-08-13-001",
+        "lab_name": "MedLab Central",
+        "report_date": "2024-08-13",
+        "page": 1,
+        "line": 16,
+        "raw_text": "PLT 250 x10^9/L (150-400)"
+      }
+    }
+  ],
+  "source": {
+    "document_id": "LAB-2024-08-13-001",
+    "lab_name": "MedLab Central",
+    "report_date": "2024-08-13",
+    "page": 1,
+    "line": 8,
+    "raw_text": "Complete Blood Count"
+  }
+}

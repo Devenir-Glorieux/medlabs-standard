@@ -1,0 +1,137 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://medlabs.standard/schema/v0.1/core.json",
+  "title": "MedLabs Standard Core Schema v0.1",
+  "type": "object",
+  "$defs": {
+    "Coding": {
+      "type": "object",
+      "required": ["system", "code", "display"],
+      "properties": {
+        "system": { "type": "string" },
+        "code": { "type": "string" },
+        "display": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "Quantity": {
+      "type": "object",
+      "required": ["value", "unit_code", "unit_system"],
+      "properties": {
+        "value": { "type": "number" },
+        "unit_code": { "type": "string" },
+        "unit_system": { "type": "string", "const": "UCUM" },
+        "unit_display": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "ReferenceRange": {
+      "type": "object",
+      "properties": {
+        "low": { "$ref": "#/$defs/Quantity" },
+        "high": { "$ref": "#/$defs/Quantity" },
+        "text": { "type": "string" }
+      },
+      "anyOf": [
+        { "required": ["low"] },
+        { "required": ["high"] },
+        { "required": ["text"] }
+      ],
+      "additionalProperties": false
+    },
+    "SourceTrace": {
+      "type": "object",
+      "required": ["document_id", "lab_name", "report_date"],
+      "properties": {
+        "document_id": { "type": "string" },
+        "lab_name": { "type": "string" },
+        "report_date": { "type": "string", "format": "date" },
+        "page": { "type": "integer", "minimum": 1 },
+        "line": { "type": "integer", "minimum": 1 },
+        "bbox": {
+          "type": "array",
+          "items": { "type": "number" },
+          "minItems": 4,
+          "maxItems": 4
+        },
+        "raw_text": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "Specimen": {
+      "type": "object",
+      "properties": {
+        "type": { "type": "string" },
+        "body_site": { "type": "string" },
+        "collected_at": { "type": "string", "format": "date-time" },
+        "specimen_id": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "ObservationValue": {
+      "oneOf": [
+        { "$ref": "#/$defs/Quantity" },
+        { "type": "string" },
+        { "type": "boolean" },
+        { "type": "null" }
+      ]
+    },
+    "Observation": {
+      "type": "object",
+      "required": ["id", "resource_type", "code", "value", "status", "source"],
+      "properties": {
+        "id": { "type": "string" },
+        "resource_type": { "type": "string", "const": "observation" },
+        "code": { "$ref": "#/$defs/Coding" },
+        "value": { "$ref": "#/$defs/ObservationValue" },
+        "reference_range": { "$ref": "#/$defs/ReferenceRange" },
+        "interpretation": {
+          "type": "string",
+          "enum": ["low", "high", "normal", "abnormal", "critical", "unknown"]
+        },
+        "status": {
+          "type": "string",
+          "enum": ["final", "preliminary", "amended", "corrected", "unknown"]
+        },
+        "effective_time": { "type": "string", "format": "date-time" },
+        "specimen": { "$ref": "#/$defs/Specimen" },
+        "source": { "$ref": "#/$defs/SourceTrace" }
+      },
+      "additionalProperties": false
+    },
+    "Panel": {
+      "type": "object",
+      "required": [
+        "id",
+        "resource_type",
+        "standard_version",
+        "panel_code",
+        "status",
+        "observations",
+        "source"
+      ],
+      "properties": {
+        "id": { "type": "string" },
+        "resource_type": { "type": "string", "const": "panel" },
+        "standard_version": { "type": "string", "const": "0.1" },
+        "panel_code": { "$ref": "#/$defs/Coding" },
+        "panel_name": { "type": "string" },
+        "status": {
+          "type": "string",
+          "enum": ["final", "preliminary", "amended", "corrected", "unknown"]
+        },
+        "collected_at": { "type": "string", "format": "date-time" },
+        "reported_at": { "type": "string", "format": "date-time" },
+        "specimen": { "$ref": "#/$defs/Specimen" },
+        "observations": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/Observation" },
+          "minItems": 1
+        },
+        "source": { "$ref": "#/$defs/SourceTrace" },
+        "notes": { "type": "string" }
+      },
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,229 @@
+{
+  "id": "panel-urine-002",
+  "resource_type": "panel",
+  "standard_version": "0.1",
+  "panel_code": {
+    "system": "MEDLABS-PANEL",
+    "code": "URINALYSIS",
+    "display": "Urinalysis Panel"
+  },
+  "panel_name": "Urinalysis Panel",
+  "status": "final",
+  "collected_at": "2024-09-21T08:10:00Z",
+  "reported_at": "2024-09-21T10:05:00Z",
+  "specimen": {
+    "type": "Urine",
+    "collected_at": "2024-09-21T08:10:00Z",
+    "specimen_id": "U-552110"
+  },
+  "observations": [
+    {
+      "id": "obs-urine-002-color",
+      "resource_type": "observation",
+      "code": {
+        "system": "LOCAL",
+        "code": "COLOR",
+        "display": "Color"
+      },
+      "value": "Dark yellow",
+      "status": "final",
+      "effective_time": "2024-09-21T08:10:00Z",
+      "source": {
+        "document_id": "LAB-2024-09-21-602",
+        "lab_name": "Northside Diagnostics",
+        "report_date": "2024-09-21",
+        "page": 1,
+        "line": 8,
+        "raw_text": "Color: Dark yellow"
+      }
+    },
+    {
+      "id": "obs-urine-002-sg",
+      "resource_type": "observation",
+      "code": {
+        "system": "LOCAL",
+        "code": "SPEC_GRAV",
+        "display": "Specific gravity"
+      },
+      "value": {
+        "value": 1.030,
+        "unit_code": "1",
+        "unit_system": "UCUM",
+        "unit_display": "SG"
+      },
+      "reference_range": {
+        "low": {
+          "value": 1.005,
+          "unit_code": "1",
+          "unit_system": "UCUM",
+          "unit_display": "SG"
+        },
+        "high": {
+          "value": 1.030,
+          "unit_code": "1",
+          "unit_system": "UCUM",
+          "unit_display": "SG"
+        }
+      },
+      "interpretation": "normal",
+      "status": "final",
+      "effective_time": "2024-09-21T08:10:00Z",
+      "source": {
+        "document_id": "LAB-2024-09-21-602",
+        "lab_name": "Northside Diagnostics",
+        "report_date": "2024-09-21",
+        "page": 1,
+        "line": 9,
+        "raw_text": "Specific gravity 1.030 (1.005-1.030)"
+      }
+    },
+    {
+      "id": "obs-urine-002-ph",
+      "resource_type": "observation",
+      "code": {
+        "system": "LOCAL",
+        "code": "PH",
+        "display": "pH"
+      },
+      "value": {
+        "value": 5.5,
+        "unit_code": "1",
+        "unit_system": "UCUM",
+        "unit_display": "pH"
+      },
+      "reference_range": {
+        "low": {
+          "value": 5.0,
+          "unit_code": "1",
+          "unit_system": "UCUM",
+          "unit_display": "pH"
+        },
+        "high": {
+          "value": 8.0,
+          "unit_code": "1",
+          "unit_system": "UCUM",
+          "unit_display": "pH"
+        }
+      },
+      "interpretation": "normal",
+      "status": "final",
+      "effective_time": "2024-09-21T08:10:00Z",
+      "source": {
+        "document_id": "LAB-2024-09-21-602",
+        "lab_name": "Northside Diagnostics",
+        "report_date": "2024-09-21",
+        "page": 1,
+        "line": 10,
+        "raw_text": "pH 5.5 (5.0-8.0)"
+      }
+    },
+    {
+      "id": "obs-urine-002-protein",
+      "resource_type": "observation",
+      "code": {
+        "system": "LOCAL",
+        "code": "PROTEIN",
+        "display": "Protein"
+      },
+      "value": "Trace",
+      "status": "final",
+      "effective_time": "2024-09-21T08:10:00Z",
+      "source": {
+        "document_id": "LAB-2024-09-21-602",
+        "lab_name": "Northside Diagnostics",
+        "report_date": "2024-09-21",
+        "page": 1,
+        "line": 11,
+        "raw_text": "Protein: Trace"
+      }
+    },
+    {
+      "id": "obs-urine-002-leu",
+      "resource_type": "observation",
+      "code": {
+        "system": "LOCAL",
+        "code": "LEUK_ESTERASE",
+        "display": "Leukocyte esterase"
+      },
+      "value": "Positive",
+      "status": "final",
+      "effective_time": "2024-09-21T08:10:00Z",
+      "source": {
+        "document_id": "LAB-2024-09-21-602",
+        "lab_name": "Northside Diagnostics",
+        "report_date": "2024-09-21",
+        "page": 1,
+        "line": 12,
+        "raw_text": "Leukocyte esterase: Positive"
+      }
+    },
+    {
+      "id": "obs-urine-002-nitrite",
+      "resource_type": "observation",
+      "code": {
+        "system": "LOCAL",
+        "code": "NITRITE",
+        "display": "Nitrite"
+      },
+      "value": "Positive",
+      "status": "final",
+      "effective_time": "2024-09-21T08:10:00Z",
+      "source": {
+        "document_id": "LAB-2024-09-21-602",
+        "lab_name": "Northside Diagnostics",
+        "report_date": "2024-09-21",
+        "page": 1,
+        "line": 13,
+        "raw_text": "Nitrite: Positive"
+      }
+    },
+    {
+      "id": "obs-urine-002-blood",
+      "resource_type": "observation",
+      "code": {
+        "system": "LOCAL",
+        "code": "BLOOD",
+        "display": "Blood"
+      },
+      "value": "Positive",
+      "status": "final",
+      "effective_time": "2024-09-21T08:10:00Z",
+      "source": {
+        "document_id": "LAB-2024-09-21-602",
+        "lab_name": "Northside Diagnostics",
+        "report_date": "2024-09-21",
+        "page": 1,
+        "line": 14,
+        "raw_text": "Blood: Positive"
+      }
+    },
+    {
+      "id": "obs-urine-002-wbc",
+      "resource_type": "observation",
+      "code": {
+        "system": "LOCAL",
+        "code": "WBC",
+        "display": "WBC (microscopy)"
+      },
+      "value": "10-20 /hpf",
+      "status": "final",
+      "effective_time": "2024-09-21T08:10:00Z",
+      "source": {
+        "document_id": "LAB-2024-09-21-602",
+        "lab_name": "Northside Diagnostics",
+        "report_date": "2024-09-21",
+        "page": 1,
+        "line": 15,
+        "raw_text": "WBC 10-20 /hpf"
+      }
+    }
+  ],
+  "source": {
+    "document_id": "LAB-2024-09-21-602",
+    "lab_name": "Northside Diagnostics",
+    "report_date": "2024-09-21",
+    "page": 1,
+    "line": 5,
+    "raw_text": "Urinalysis"
+  }
+}

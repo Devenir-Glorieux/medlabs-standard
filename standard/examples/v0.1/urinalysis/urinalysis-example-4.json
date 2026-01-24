@@ -1,0 +1,109 @@
+{
+  "id": "panel-urine-004",
+  "resource_type": "panel",
+  "standard_version": "0.1",
+  "panel_code": {
+    "system": "MEDLABS-PANEL",
+    "code": "URINALYSIS",
+    "display": "Urinalysis Panel"
+  },
+  "panel_name": "Urinalysis Panel",
+  "status": "final",
+  "collected_at": "2024-11-01T07:05:00Z",
+  "reported_at": "2024-11-01T09:20:00Z",
+  "specimen": {
+    "type": "Urine",
+    "collected_at": "2024-11-01T07:05:00Z",
+    "specimen_id": "U-610442"
+  },
+  "observations": [
+    {
+      "id": "obs-urine-004-rbc",
+      "resource_type": "observation",
+      "code": {
+        "system": "LOCAL",
+        "code": "RBC",
+        "display": "RBC (microscopy)"
+      },
+      "value": "0-1 /hpf",
+      "reference_range": {
+        "text": "0-2 /hpf"
+      },
+      "status": "final",
+      "effective_time": "2024-11-01T07:05:00Z",
+      "source": {
+        "document_id": "LAB-2024-11-01-610",
+        "lab_name": "CityLab",
+        "report_date": "2024-11-01",
+        "page": 1,
+        "line": 12
+      }
+    },
+    {
+      "id": "obs-urine-004-bacteria",
+      "resource_type": "observation",
+      "code": {
+        "system": "LOCAL",
+        "code": "BACTERIA",
+        "display": "Bacteria"
+      },
+      "value": "None seen",
+      "status": "final",
+      "effective_time": "2024-11-01T07:05:00Z",
+      "source": {
+        "document_id": "LAB-2024-11-01-610",
+        "lab_name": "CityLab",
+        "report_date": "2024-11-01",
+        "page": 1,
+        "line": 13,
+        "raw_text": "Bacteria: none seen"
+      }
+    },
+    {
+      "id": "obs-urine-004-casts",
+      "resource_type": "observation",
+      "code": {
+        "system": "LOCAL",
+        "code": "CASTS",
+        "display": "Casts"
+      },
+      "value": "None seen",
+      "status": "final",
+      "effective_time": "2024-11-01T07:05:00Z",
+      "source": {
+        "document_id": "LAB-2024-11-01-610",
+        "lab_name": "CityLab",
+        "report_date": "2024-11-01",
+        "page": 1,
+        "line": 14
+      }
+    },
+    {
+      "id": "obs-urine-004-crystals",
+      "resource_type": "observation",
+      "code": {
+        "system": "LOCAL",
+        "code": "CRYSTALS",
+        "display": "Crystals"
+      },
+      "value": "Calcium oxalate: rare",
+      "status": "final",
+      "effective_time": "2024-11-01T07:05:00Z",
+      "source": {
+        "document_id": "LAB-2024-11-01-610",
+        "lab_name": "CityLab",
+        "report_date": "2024-11-01",
+        "page": 1,
+        "line": 15
+      }
+    }
+  ],
+  "source": {
+    "document_id": "LAB-2024-11-01-610",
+    "lab_name": "CityLab",
+    "report_date": "2024-11-01",
+    "page": 1,
+    "line": 7,
+    "raw_text": "Urinalysis"
+  }
+}

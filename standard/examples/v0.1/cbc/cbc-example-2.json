@@ -1,0 +1,189 @@
+{
+  "id": "panel-cbc-002",
+  "resource_type": "panel",
+  "standard_version": "0.1",
+  "panel_code": {
+    "system": "MEDLABS-PANEL",
+    "code": "CBC",
+    "display": "Complete Blood Count"
+  },
+  "panel_name": "Complete Blood Count",
+  "status": "final",
+  "collected_at": "2024-09-02T07:40:00Z",
+  "reported_at": "2024-09-02T11:05:00Z",
+  "specimen": {
+    "type": "Venous blood",
+    "collected_at": "2024-09-02T07:40:00Z",
+    "specimen_id": "S-991204"
+  },
+  "observations": [
+    {
+      "id": "obs-cbc-002-hgb",
+      "resource_type": "observation",
+      "code": {
+        "system": "LOINC",
+        "code": "718-7",
+        "display": "Hemoglobin [Mass/volume] in Blood"
+      },
+      "value": {
+        "value": 10.8,
+        "unit_code": "g/dL",
+        "unit_system": "UCUM",
+        "unit_display": "g/dL"
+      },
+      "reference_range": {
+        "low": {
+          "value": 12.0,
+          "unit_code": "g/dL",
+          "unit_system": "UCUM",
+          "unit_display": "g/dL"
+        },
+        "high": {
+          "value": 16.0,
+          "unit_code": "g/dL",
+          "unit_system": "UCUM",
+          "unit_display": "g/dL"
+        }
+      },
+      "interpretation": "low",
+      "status": "final",
+      "effective_time": "2024-09-02T07:40:00Z",
+      "source": {
+        "document_id": "LAB-2024-09-02-002",
+        "lab_name": "Northside Diagnostics",
+        "report_date": "2024-09-02",
+        "page": 2,
+        "line": 21,
+        "raw_text": "HGB 10.8 g/dL (12.0-16.0)"
+      }
+    },
+    {
+      "id": "obs-cbc-002-rbc",
+      "resource_type": "observation",
+      "code": {
+        "system": "LOINC",
+        "code": "789-8",
+        "display": "Erythrocytes [#/volume] in Blood"
+      },
+      "value": {
+        "value": 3.6,
+        "unit_code": "10*12/L",
+        "unit_system": "UCUM",
+        "unit_display": "10^12/L"
+      },
+      "reference_range": {
+        "low": {
+          "value": 4.0,
+          "unit_code": "10*12/L",
+          "unit_system": "UCUM",
+          "unit_display": "10^12/L"
+        },
+        "high": {
+          "value": 5.2,
+          "unit_code": "10*12/L",
+          "unit_system": "UCUM",
+          "unit_display": "10^12/L"
+        }
+      },
+      "interpretation": "low",
+      "status": "final",
+      "effective_time": "2024-09-02T07:40:00Z",
+      "source": {
+        "document_id": "LAB-2024-09-02-002",
+        "lab_name": "Northside Diagnostics",
+        "report_date": "2024-09-02",
+        "page": 2,
+        "line": 22,
+        "raw_text": "RBC 3.6 x10^12/L (4.0-5.2)"
+      }
+    },
+    {
+      "id": "obs-cbc-002-hct",
+      "resource_type": "observation",
+      "code": {
+        "system": "LOINC",
+        "code": "4544-3",
+        "display": "Hematocrit [Volume Fraction] of Blood"
+      },
+      "value": {
+        "value": 33.5,
+        "unit_code": "%",
+        "unit_system": "UCUM",
+        "unit_display": "%"
+      },
+      "reference_range": {
+        "low": {
+          "value": 36.0,
+          "unit_code": "%",
+          "unit_system": "UCUM",
+          "unit_display": "%"
+        },
+        "high": {
+          "value": 46.0,
+          "unit_code": "%",
+          "unit_system": "UCUM",
+          "unit_display": "%"
+        }
+      },
+      "interpretation": "low",
+      "status": "final",
+      "effective_time": "2024-09-02T07:40:00Z",
+      "source": {
+        "document_id": "LAB-2024-09-02-002",
+        "lab_name": "Northside Diagnostics",
+        "report_date": "2024-09-02",
+        "page": 2,
+        "line": 23,
+        "raw_text": "HCT 33.5 % (36.0-46.0)"
+      }
+    },
+    {
+      "id": "obs-cbc-002-mcv",
+      "resource_type": "observation",
+      "code": {
+        "system": "LOINC",
+        "code": "787-2",
+        "display": "MCV [Entitic volume] by Automated count"
+      },
+      "value": {
+        "value": 78.0,
+        "unit_code": "fL",
+        "unit_system": "UCUM",
+        "unit_display": "fL"
+      },
+      "reference_range": {
+        "low": {
+          "value": 80.0,
+          "unit_code": "fL",
+          "unit_system": "UCUM",
+          "unit_display": "fL"
+        },
+        "high": {
+          "value": 98.0,
+          "unit_code": "fL",
+          "unit_system": "UCUM",
+          "unit_display": "fL"
+        }
+      },
+      "interpretation": "low",
+      "status": "final",
+      "effective_time": "2024-09-02T07:40:00Z",
+      "source": {
+        "document_id": "LAB-2024-09-02-002",
+        "lab_name": "Northside Diagnostics",
+        "report_date": "2024-09-02",
+        "page": 2,
+        "line": 24,
+        "raw_text": "MCV 78 fL (80-98)"
+      }
+    }
+  ],
+  "source": {
+    "document_id": "LAB-2024-09-02-002",
+    "lab_name": "Northside Diagnostics",
+    "report_date": "2024-09-02",
+    "page": 2,
+    "line": 18,
+    "raw_text": "Complete Blood Count"
+  }
+}

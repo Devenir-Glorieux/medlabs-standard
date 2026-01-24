@@ -1,0 +1,209 @@
+{
+  "id": "panel-urine-003",
+  "resource_type": "panel",
+  "standard_version": "0.1",
+  "panel_code": {
+    "system": "MEDLABS-PANEL",
+    "code": "URINALYSIS",
+    "display": "Urinalysis Panel"
+  },
+  "panel_name": "Urinalysis Panel",
+  "status": "final",
+  "collected_at": "2024-12-03T06:45:00Z",
+  "reported_at": "2024-12-03T08:30:00Z",
+  "specimen": {
+    "type": "Urine",
+    "collected_at": "2024-12-03T06:45:00Z",
+    "specimen_id": "U-660019"
+  },
+  "observations": [
+    {
+      "id": "obs-urine-003-color",
+      "resource_type": "observation",
+      "code": {
+        "system": "LOCAL",
+        "code": "COLOR",
+        "display": "Color"
+      },
+      "value": "Amber",
+      "status": "final",
+      "effective_time": "2024-12-03T06:45:00Z",
+      "source": {
+        "document_id": "LAB-2024-12-03-701",
+        "lab_name": "CityLab",
+        "report_date": "2024-12-03",
+        "page": 1,
+        "line": 8,
+        "raw_text": "Color: Amber"
+      }
+    },
+    {
+      "id": "obs-urine-003-sg",
+      "resource_type": "observation",
+      "code": {
+        "system": "LOCAL",
+        "code": "SPEC_GRAV",
+        "display": "Specific gravity"
+      },
+      "value": {
+        "value": 1.028,
+        "unit_code": "1",
+        "unit_system": "UCUM",
+        "unit_display": "SG"
+      },
+      "reference_range": {
+        "low": {
+          "value": 1.005,
+          "unit_code": "1",
+          "unit_system": "UCUM",
+          "unit_display": "SG"
+        },
+        "high": {
+          "value": 1.030,
+          "unit_code": "1",
+          "unit_system": "UCUM",
+          "unit_display": "SG"
+        }
+      },
+      "interpretation": "normal",
+      "status": "final",
+      "effective_time": "2024-12-03T06:45:00Z",
+      "source": {
+        "document_id": "LAB-2024-12-03-701",
+        "lab_name": "CityLab",
+        "report_date": "2024-12-03",
+        "page": 1,
+        "line": 9,
+        "raw_text": "Specific gravity 1.028 (1.005-1.030)"
+      }
+    },
+    {
+      "id": "obs-urine-003-ph",
+      "resource_type": "observation",
+      "code": {
+        "system": "LOCAL",
+        "code": "PH",
+        "display": "pH"
+      },
+      "value": {
+        "value": 5.0,
+        "unit_code": "1",
+        "unit_system": "UCUM",
+        "unit_display": "pH"
+      },
+      "reference_range": {
+        "low": {
+          "value": 5.0,
+          "unit_code": "1",
+          "unit_system": "UCUM",
+          "unit_display": "pH"
+        },
+        "high": {
+          "value": 8.0,
+          "unit_code": "1",
+          "unit_system": "UCUM",
+          "unit_display": "pH"
+        }
+      },
+      "interpretation": "normal",
+      "status": "final",
+      "effective_time": "2024-12-03T06:45:00Z",
+      "source": {
+        "document_id": "LAB-2024-12-03-701",
+        "lab_name": "CityLab",
+        "report_date": "2024-12-03",
+        "page": 1,
+        "line": 10,
+        "raw_text": "pH 5.0 (5.0-8.0)"
+      }
+    },
+    {
+      "id": "obs-urine-003-glucose",
+      "resource_type": "observation",
+      "code": {
+        "system": "LOCAL",
+        "code": "GLUCOSE",
+        "display": "Glucose"
+      },
+      "value": "Positive (3+)",
+      "status": "final",
+      "effective_time": "2024-12-03T06:45:00Z",
+      "source": {
+        "document_id": "LAB-2024-12-03-701",
+        "lab_name": "CityLab",
+        "report_date": "2024-12-03",
+        "page": 1,
+        "line": 11,
+        "raw_text": "Glucose: +++"
+      }
+    },
+    {
+      "id": "obs-urine-003-ketones",
+      "resource_type": "observation",
+      "code": {
+        "system": "LOCAL",
+        "code": "KETONES",
+        "display": "Ketones"
+      },
+      "value": "Positive (2+)",
+      "status": "final",
+      "effective_time": "2024-12-03T06:45:00Z",
+      "source": {
+        "document_id": "LAB-2024-12-03-701",
+        "lab_name": "CityLab",
+        "report_date": "2024-12-03",
+        "page": 1,
+        "line": 12,
+        "raw_text": "Ketones: ++"
+      }
+    },
+    {
+      "id": "obs-urine-003-protein",
+      "resource_type": "observation",
+      "code": {
+        "system": "LOCAL",
+        "code": "PROTEIN",
+        "display": "Protein"
+      },
+      "value": "Negative",
+      "status": "final",
+      "effective_time": "2024-12-03T06:45:00Z",
+      "source": {
+        "document_id": "LAB-2024-12-03-701",
+        "lab_name": "CityLab",
+        "report_date": "2024-12-03",
+        "page": 1,
+        "line": 13,
+        "raw_text": "Protein: Negative"
+      }
+    },
+    {
+      "id": "obs-urine-003-nitrite",
+      "resource_type": "observation",
+      "code": {
+        "system": "LOCAL",
+        "code": "NITRITE",
+        "display": "Nitrite"
+      },
+      "value": "Negative",
+      "status": "final",
+      "effective_time": "2024-12-03T06:45:00Z",
+      "source": {
+        "document_id": "LAB-2024-12-03-701",
+        "lab_name": "CityLab",
+        "report_date": "2024-12-03",
+        "page": 1,
+        "line": 14,
+        "raw_text": "Nitrite: Negative"
+      }
+    }
+  ],
+  "source": {
+    "document_id": "LAB-2024-12-03-701",
+    "lab_name": "CityLab",
+    "report_date": "2024-12-03",
+    "page": 1,
+    "line": 5,
+    "raw_text": "Urinalysis"
+  }
+}

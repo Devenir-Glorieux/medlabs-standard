@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://medlabs.standard/schema/v0.1/urinalysis.json",
+  "title": "Urinalysis Panel",
+  "type": "object",
+  "allOf": [
+    { "$ref": "./core.json#/$defs/Panel" },
+    {
+      "type": "object",
+      "properties": {
+        "panel_code": {
+          "allOf": [
+            { "$ref": "./core.json#/$defs/Coding" },
+            {
+              "type": "object",
+              "properties": {
+                "system": { "const": "MEDLABS-PANEL" },
+                "code": { "const": "URINALYSIS" },
+                "display": { "const": "Urinalysis Panel" }
+              },
+              "required": ["system", "code", "display"]
+            }
+          ]
+        },
+        "panel_name": { "const": "Urinalysis Panel" }
+      }
+    }
+  ]
+}

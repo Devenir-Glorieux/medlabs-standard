@@ -1,0 +1,93 @@
+{
+  "id": "panel-biochem-005",
+  "resource_type": "panel",
+  "standard_version": "0.1",
+  "panel_code": {
+    "system": "MEDLABS-PANEL",
+    "code": "BIOCHEM",
+    "display": "Biochemistry Panel"
+  },
+  "panel_name": "Biochemistry Panel",
+  "status": "final",
+  "collected_at": "2025-01-08T06:55:00Z",
+  "reported_at": "2025-01-08T10:10:00Z",
+  "specimen": {
+    "type": "Serum",
+    "collected_at": "2025-01-08T06:55:00Z",
+    "specimen_id": "S-130115"
+  },
+  "observations": [
+    {
+      "id": "obs-bio-005-trop",
+      "resource_type": "observation",
+      "code": {
+        "system": "LOCAL",
+        "code": "TROPONIN_I",
+        "display": "Troponin I"
+      },
+      "value": "<0.01 ng/mL",
+      "reference_range": {
+        "text": "<0.04 ng/mL"
+      },
+      "status": "final",
+      "effective_time": "2025-01-08T06:55:00Z",
+      "source": {
+        "document_id": "LAB-2025-01-08-118",
+        "lab_name": "Northside Diagnostics",
+        "report_date": "2025-01-08",
+        "page": 1,
+        "line": 15,
+        "raw_text": "Troponin I <0.01 ng/mL (ref <0.04)"
+      }
+    },
+    {
+      "id": "obs-bio-005-procalcitonin",
+      "resource_type": "observation",
+      "code": {
+        "system": "LOCAL",
+        "code": "PCT",
+        "display": "Procalcitonin"
+      },
+      "value": "Below detection limit",
+      "reference_range": {
+        "text": "Below 0.05 ng/mL"
+      },
+      "status": "final",
+      "effective_time": "2025-01-08T06:55:00Z",
+      "source": {
+        "document_id": "LAB-2025-01-08-118",
+        "lab_name": "Northside Diagnostics",
+        "report_date": "2025-01-08",
+        "page": 1,
+        "line": 16
+      }
+    },
+    {
+      "id": "obs-bio-005-lipemia",
+      "resource_type": "observation",
+      "code": {
+        "system": "LOCAL",
+        "code": "LIPEMIA_INDEX",
+        "display": "Lipemia index"
+      },
+      "value": null,
+      "status": "final",
+      "effective_time": "2025-01-08T06:55:00Z",
+      "source": {
+        "document_id": "LAB-2025-01-08-118",
+        "lab_name": "Northside Diagnostics",
+        "report_date": "2025-01-08",
+        "page": 1,
+        "line": 17
+      }
+    }
+  ],
+  "source": {
+    "document_id": "LAB-2025-01-08-118",
+    "lab_name": "Northside Diagnostics",
+    "report_date": "2025-01-08",
+    "page": 1,
+    "line": 11,
+    "raw_text": "Biochemistry Panel"
+  }
+}

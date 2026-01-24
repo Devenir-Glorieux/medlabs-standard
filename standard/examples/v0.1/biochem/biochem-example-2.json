@@ -1,0 +1,229 @@
+{
+  "id": "panel-biochem-002",
+  "resource_type": "panel",
+  "standard_version": "0.1",
+  "panel_code": {
+    "system": "MEDLABS-PANEL",
+    "code": "BIOCHEM",
+    "display": "Biochemistry Panel"
+  },
+  "panel_name": "Biochemistry Panel",
+  "status": "final",
+  "collected_at": "2024-08-05T07:10:00Z",
+  "reported_at": "2024-08-05T11:25:00Z",
+  "specimen": {
+    "type": "Serum",
+    "collected_at": "2024-08-05T07:10:00Z",
+    "specimen_id": "S-880332"
+  },
+  "observations": [
+    {
+      "id": "obs-bio-002-glu",
+      "resource_type": "observation",
+      "code": {
+        "system": "LOINC",
+        "code": "2345-7",
+        "display": "Glucose [Moles/volume] in Blood"
+      },
+      "value": {
+        "value": 8.2,
+        "unit_code": "mmol/L",
+        "unit_system": "UCUM",
+        "unit_display": "mmol/L"
+      },
+      "reference_range": {
+        "low": {
+          "value": 3.9,
+          "unit_code": "mmol/L",
+          "unit_system": "UCUM",
+          "unit_display": "mmol/L"
+        },
+        "high": {
+          "value": 5.5,
+          "unit_code": "mmol/L",
+          "unit_system": "UCUM",
+          "unit_display": "mmol/L"
+        }
+      },
+      "interpretation": "high",
+      "status": "final",
+      "effective_time": "2024-08-05T07:10:00Z",
+      "source": {
+        "document_id": "LAB-2024-08-05-209",
+        "lab_name": "Eastside Lab",
+        "report_date": "2024-08-05",
+        "page": 1,
+        "line": 9,
+        "raw_text": "Glucose 8.2 mmol/L (3.9-5.5)"
+      }
+    },
+    {
+      "id": "obs-bio-002-crea",
+      "resource_type": "observation",
+      "code": {
+        "system": "LOINC",
+        "code": "2160-0",
+        "display": "Creatinine [Moles/volume] in Serum or Plasma"
+      },
+      "value": {
+        "value": 90.0,
+        "unit_code": "umol/L",
+        "unit_system": "UCUM",
+        "unit_display": "umol/L"
+      },
+      "reference_range": {
+        "low": {
+          "value": 62.0,
+          "unit_code": "umol/L",
+          "unit_system": "UCUM",
+          "unit_display": "umol/L"
+        },
+        "high": {
+          "value": 106.0,
+          "unit_code": "umol/L",
+          "unit_system": "UCUM",
+          "unit_display": "umol/L"
+        }
+      },
+      "interpretation": "normal",
+      "status": "final",
+      "effective_time": "2024-08-05T07:10:00Z",
+      "source": {
+        "document_id": "LAB-2024-08-05-209",
+        "lab_name": "Eastside Lab",
+        "report_date": "2024-08-05",
+        "page": 1,
+        "line": 10,
+        "raw_text": "Creatinine 90 umol/L (62-106)"
+      }
+    },
+    {
+      "id": "obs-bio-002-alt",
+      "resource_type": "observation",
+      "code": {
+        "system": "LOINC",
+        "code": "1742-6",
+        "display": "Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma"
+      },
+      "value": {
+        "value": 88.0,
+        "unit_code": "U/L",
+        "unit_system": "UCUM",
+        "unit_display": "U/L"
+      },
+      "reference_range": {
+        "low": {
+          "value": 0.0,
+          "unit_code": "U/L",
+          "unit_system": "UCUM",
+          "unit_display": "U/L"
+        },
+        "high": {
+          "value": 40.0,
+          "unit_code": "U/L",
+          "unit_system": "UCUM",
+          "unit_display": "U/L"
+        }
+      },
+      "interpretation": "high",
+      "status": "final",
+      "effective_time": "2024-08-05T07:10:00Z",
+      "source": {
+        "document_id": "LAB-2024-08-05-209",
+        "lab_name": "Eastside Lab",
+        "report_date": "2024-08-05",
+        "page": 1,
+        "line": 11,
+        "raw_text": "ALT 88 U/L (0-40)"
+      }
+    },
+    {
+      "id": "obs-bio-002-chol",
+      "resource_type": "observation",
+      "code": {
+        "system": "LOINC",
+        "code": "2093-3",
+        "display": "Cholesterol [Moles/volume] in Serum or Plasma"
+      },
+      "value": {
+        "value": 6.3,
+        "unit_code": "mmol/L",
+        "unit_system": "UCUM",
+        "unit_display": "mmol/L"
+      },
+      "reference_range": {
+        "low": {
+          "value": 0.0,
+          "unit_code": "mmol/L",
+          "unit_system": "UCUM",
+          "unit_display": "mmol/L"
+        },
+        "high": {
+          "value": 5.2,
+          "unit_code": "mmol/L",
+          "unit_system": "UCUM",
+          "unit_display": "mmol/L"
+        }
+      },
+      "interpretation": "high",
+      "status": "final",
+      "effective_time": "2024-08-05T07:10:00Z",
+      "source": {
+        "document_id": "LAB-2024-08-05-209",
+        "lab_name": "Eastside Lab",
+        "report_date": "2024-08-05",
+        "page": 1,
+        "line": 12,
+        "raw_text": "Cholesterol 6.3 mmol/L (<5.2)"
+      }
+    },
+    {
+      "id": "obs-bio-002-alb",
+      "resource_type": "observation",
+      "code": {
+        "system": "LOINC",
+        "code": "1751-7",
+        "display": "Albumin [Mass/volume] in Serum or Plasma"
+      },
+      "value": {
+        "value": 42.0,
+        "unit_code": "g/L",
+        "unit_system": "UCUM",
+        "unit_display": "g/L"
+      },
+      "reference_range": {
+        "low": {
+          "value": 35.0,
+          "unit_code": "g/L",
+          "unit_system": "UCUM",
+          "unit_display": "g/L"
+        },
+        "high": {
+          "value": 50.0,
+          "unit_code": "g/L",
+          "unit_system": "UCUM",
+          "unit_display": "g/L"
+        }
+      },
+      "interpretation": "normal",
+      "status": "final",
+      "effective_time": "2024-08-05T07:10:00Z",
+      "source": {
+        "document_id": "LAB-2024-08-05-209",
+        "lab_name": "Eastside Lab",
+        "report_date": "2024-08-05",
+        "page": 1,
+        "line": 13,
+        "raw_text": "Albumin 42 g/L (35-50)"
+      }
+    }
+  ],
+  "source": {
+    "document_id": "LAB-2024-08-05-209",
+    "lab_name": "Eastside Lab",
+    "report_date": "2024-08-05",
+    "page": 1,
+    "line": 6,
+    "raw_text": "Biochemistry Panel"
+  }
+}
