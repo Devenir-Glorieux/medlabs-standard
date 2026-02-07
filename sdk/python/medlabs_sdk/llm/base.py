@@ -1,7 +1,3 @@
-from abc import ABC, abstractmethod
-from typing import Any
+from medlabs_sdk.contracts import LLMClient
 
-class LLMClient(ABC):
-    @abstractmethod
-    def complete(self, prompt: str, **kwargs: Any) -> str:
-        raise NotImplementedError
+__all__ = ["LLMClient"]

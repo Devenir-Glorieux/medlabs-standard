@@ -1,28 +1,32 @@
+from __future__ import annotations
+
 import re
-from typing import Optional, Tuple
 
-_RANGE_RE = re.compile("(-?\\d+(?:[\\.,]\\d+)?)\\s*[-\\u2013]\\s*(-?\\d+(?:[\\.,]\\d+)?)")
-_SINGLE_RE = re.compile("-?\\d+(?:[\\.,]\\d+)?")
+_RANGE_RE = re.compile(r"(-?\d+(?:[\.,]\d+)?)\s*[-\u2013]\s*(-?\d+(?:[\.,]\d+)?)")
+_NUMBER_RE = re.compile(r"-?\d+(?:[\.,]\d+)?")
 
 
-def parse_float(value_raw: str) -> Optional[float]:
-    if not value_raw:
-        return None
+def parse_float(value_raw: str) -> float | None:
     value = value_raw.strip()
-    if _RANGE_RE.search(value):
+    if not value or _RANGE_RE.search(value):
         return None
-    match = _SINGLE_RE.search(value)
+
+    match = _NUMBER_RE.search(value)
     if not match:
         return None
+
     return float(match.group(0).replace(",", "."))
 
 
-def parse_range(ref_raw: str) -> Tuple[Optional[float], Optional[float]]:
-    if not ref_raw:
+def parse_range(ref_raw: str) -> tuple[float | None, float | None]:
+    ref = ref_raw.strip()
+    if not ref:
         return None, None
-    match = _RANGE_RE.search(ref_raw)
+
+    match = _RANGE_RE.search(ref)
     if not match:
         return None, None
+
     low = float(match.group(1).replace(",", "."))
     high = float(match.group(2).replace(",", "."))
     return low, high
