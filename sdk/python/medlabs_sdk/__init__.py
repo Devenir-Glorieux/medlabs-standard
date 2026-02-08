@@ -1,4 +1,4 @@
-from medlabs_sdk.contracts import LLMClient, Tracer
+from medlabs_sdk.contracts import LLMClient, PromptProvider, StructuredGenerator, Tracer
 from medlabs_sdk.core.extract import AIExtractor, Extractor, RegexExtractor
 from medlabs_sdk.core.ingest import Ingestor, PdfIngestError, PdfIngestor, TextIngestor
 from medlabs_sdk.core.map import to_standard_panel
@@ -21,6 +21,7 @@ from medlabs_sdk.core.normalize import (
     parse_range,
 )
 from medlabs_sdk.core.validate import validate_jsonschema, validate_rules
+from medlabs_sdk.logger import configure_logger, get_logger
 from medlabs_sdk.pipeline import MedLabsPipeline
 from medlabs_sdk.providers import (
     LangfuseOpenAIClient,
@@ -28,7 +29,7 @@ from medlabs_sdk.providers import (
     LangfuseTracer,
     NoopTracer,
     OpenAIClient,
-    PromptProvider,
+    PromptedLLMClient,
 )
 
 __all__ = [
@@ -57,12 +58,16 @@ __all__ = [
     "validate_jsonschema",
     "validate_rules",
     "LLMClient",
+    "PromptProvider",
+    "StructuredGenerator",
     "Tracer",
     "MedLabsPipeline",
+    "configure_logger",
+    "get_logger",
     "LangfuseOpenAIClient",
     "LangfusePromptProvider",
     "LangfuseTracer",
     "NoopTracer",
     "OpenAIClient",
-    "PromptProvider",
+    "PromptedLLMClient",
 ]

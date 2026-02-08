@@ -47,7 +47,7 @@
                     "value": {
                       "properties": {
                         "unit_code": {
-                          "enum": ["10*9/L", "10*12/L", "g/dL", "%", "fL"]
+                          "enum": ["10*9/L", "10*12/L", "g/dL", "%", "fL", "mm/h"]
                         }
                       }
                     }

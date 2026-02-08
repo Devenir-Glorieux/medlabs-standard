@@ -69,3 +69,17 @@ def test_pipeline_end_to_end_with_mock_llm() -> None:
     assert result.validation.is_valid
     assert result.mapped.data["panel_code"]["code"] == "CBC"
     assert len(result.mapped.data["observations"]) == 3
+    assert pipeline.workflow_node_names == ("extract", "normalize", "map", "validate")
+    assert pipeline.workflow_edges == (
+        ("extract", "normalize", "always"),
+        ("normalize", "map", "always"),
+        ("map", "validate", "always"),
+    )
+    assert pipeline.last_state is not None
+    assert [step.pipeline_step for step in pipeline.last_state.steps] == [
+        "ingest",
+        "extract",
+        "normalize",
+        "map",
+        "validate",
+    ]

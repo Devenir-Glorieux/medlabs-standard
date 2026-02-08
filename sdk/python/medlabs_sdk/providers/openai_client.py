@@ -1,48 +1,43 @@
 from __future__ import annotations
 
 import json
-from typing import Any, Protocol
-
-
-class PromptProvider(Protocol):
-    def get_prompt(self, *, prompt_name: str, prompt_version: str) -> str:
-        ...
+from typing import Any
 
 
 class OpenAIClient:
+    """OpenAI-compatible structured generation transport.
+
+    This class only does model inference and knows nothing about prompt storage.
+    """
+
     def __init__(
         self,
         *,
         model: str = "gpt-4o-mini",
         api_key: str | None = None,
-        prompt_provider: PromptProvider,
+        base_url: str | None = None,
         openai_client: Any | None = None,
     ) -> None:
         self.model = model
         self.api_key = api_key
-        self.prompt_provider = prompt_provider
+        self.base_url = base_url
         self._openai = openai_client
 
-    def extract_structured(
+    def generate_structured(
         self,
         *,
-        prompt_name: str,
-        prompt_version: str,
+        system_prompt: str,
         input_text: str,
         output_schema: dict[str, Any],
         temperature: float = 0.0,
     ) -> dict[str, Any]:
         openai_client = self._resolve_openai_client()
-        prompt_text = self.prompt_provider.get_prompt(
-            prompt_name=prompt_name,
-            prompt_version=prompt_version,
-        )
 
         response = openai_client.chat.completions.create(
             model=self.model,
             temperature=temperature,
             messages=[
-                {"role": "system", "content": prompt_text},
+                {"role": "system", "content": system_prompt},
                 {"role": "user", "content": input_text},
             ],
             response_format={
@@ -73,6 +68,8 @@ class OpenAIClient:
         kwargs: dict[str, Any] = {}
         if self.api_key:
             kwargs["api_key"] = self.api_key
+        if self.base_url:
+            kwargs["base_url"] = self.base_url
 
         self._openai = OpenAI(**kwargs)
         return self._openai

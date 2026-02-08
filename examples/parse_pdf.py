@@ -1,14 +1,38 @@
-from __future__ import annotations
-
 import argparse
 import json
-import sys
 from pathlib import Path
+
+from medlabs_sdk import MedLabsPipeline, get_logger
+from pydantic import Field
+from pydantic_settings import BaseSettings, SettingsConfigDict
+
+logger = get_logger()
+
+class ExampleCliSettings(BaseSettings):
+    sample_pdf: str | None = Field(default=None, alias="MEDLABS_SAMPLE_PDF")
+
+    model_config = SettingsConfigDict(
+        env_file=".env",
+        env_file_encoding="utf-8",
+        extra="ignore",
+        case_sensitive=False,
+    )
+
+
+def default_pdf_path() -> str | None:
+    try:
+        return ExampleCliSettings().sample_pdf
+    except Exception:
+        return None
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Parse PDF lab report into MedLabs standard")
-    parser.add_argument("--pdf", help="PDF path")
+    parser.add_argument(
+        "--pdf",
+        default=default_pdf_path(),
+        help="PDF path (or set MEDLABS_SAMPLE_PDF)",
+    )
     parser.add_argument("--panel", default="CBC", help="Panel code: CBC/BIOCHEM/URINALYSIS")
     return parser.parse_args()
 
@@ -16,60 +40,16 @@ def parse_args() -> argparse.Namespace:
 def main() -> None:
     args = parse_args()
 
-    project_root = Path(__file__).resolve().parents[1]
-    sdk_root = project_root / "sdk" / "python"
-    if str(sdk_root) not in sys.path:
-        sys.path.insert(0, str(sdk_root))
-
-    from medlabs_sdk.config import MedLabsSettings
-    from medlabs_sdk.pipeline import MedLabsPipeline
-    from medlabs_sdk.providers import (
-        LangfusePromptProvider,
-        LangfuseTracer,
-        NoopTracer,
-        OpenAIClient,
-    )
-
-    settings = MedLabsSettings()
-
-    pdf_path_value = args.pdf or settings.sample_pdf
-    if not pdf_path_value:
+    if not args.pdf:
         raise RuntimeError("Pass --pdf path or set MEDLABS_SAMPLE_PDF")
 
-    pdf_path = Path(pdf_path_value)
+    pdf_path = Path(args.pdf)
+    if not pdf_path.is_absolute() and args.pdf.startswith("Users/"):
+        pdf_path = Path("/") / pdf_path
     if not pdf_path.exists():
         raise RuntimeError(f"PDF file not found: {pdf_path}")
 
-    prompt_provider = LangfusePromptProvider(
-        public_key=settings.langfuse_public_key,
-        secret_key=settings.langfuse_secret_key,
-        host=settings.langfuse_host,
-    )
-    llm_client = OpenAIClient(
-        model=settings.openai_model,
-        api_key=settings.openai_api_key,
-        prompt_provider=prompt_provider,
-    )
-
-    tracer = (
-        LangfuseTracer(
-            public_key=settings.langfuse_public_key,
-            secret_key=settings.langfuse_secret_key,
-            host=settings.langfuse_host,
-        )
-        if settings.enable_tracing
-        else NoopTracer()
-    )
-
-    pipeline = MedLabsPipeline(
-        llm_client=llm_client,
-        prompt_name=settings.prompt_name,
-        prompt_version=settings.prompt_version,
-        tracer=tracer,
-        schema_dir=settings.schema_dir_path(),
-        log_level=settings.log_level,
-    )
-
+    pipeline = MedLabsPipeline.from_env()
     result = pipeline.parse_pdf(
         str(pdf_path),
         panel=args.panel,
@@ -81,16 +61,24 @@ def main() -> None:
         },
     )
 
-    print(json.dumps(result.mapped.data, indent=2, ensure_ascii=False))
+    print("=== pipeline_summary ===")
     print(
         json.dumps(
             {
+                "source": result.document.source,
+                "pages": len(result.document.pages),
+                "text_size": len(result.document.text),
+                "extracted_fields": len(result.extracted.fields),
+                "normalized_observations": len(result.normalized.observations),
                 "is_valid": result.validation.is_valid,
                 "issue_count": len(result.validation.issues),
             },
             indent=2,
+            ensure_ascii=False,
         )
     )
+    print("=== mapped_payload ===")
+    print(json.dumps(result.mapped.data, indent=2, ensure_ascii=False))
 
 
 if __name__ == "__main__":

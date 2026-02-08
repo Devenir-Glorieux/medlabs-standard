@@ -19,7 +19,10 @@ class LangfuseTracer:
         self._langfuse = langfuse_client
 
     def span(self, name: str, **attrs: Any) -> AbstractContextManager[None]:
-        client = self._resolve_langfuse_client()
+        try:
+            client = self._resolve_langfuse_client()
+        except Exception:
+            return nullcontext()
 
         if hasattr(client, "start_as_current_span"):
             try:

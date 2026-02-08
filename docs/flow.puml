@@ -1,0 +1,40 @@
+@startuml
+title MedLabs SDK Pipeline Sequence
+
+autonumber
+
+actor App as "App / Example"
+participant Ingest as "PdfIngestor / TextIngestor"
+participant State as "PipelineState"
+participant Graph as "WorkflowGraph (nodes+edges)"
+participant Extract as "AIExtractor"
+participant LLM as "LLMClient"
+participant Normalize as "normalize()"
+participant Map as "to_standard_panel()"
+participant Validate as "validate_jsonschema()"
+
+App -> Ingest: parse_pdf(source) / parse_text(text)
+Ingest --> App: RawDocument(text, pages, meta)
+App -> State: state.document = RawDocument\nstate.panel = selected panel
+App -> Graph: start node = extract
+
+App -> Extract: extract(document)
+Extract -> LLM: extract_structured(prompt_name, prompt_version,\ninput_text, output_schema)
+LLM --> Extract: draft fields JSON
+Extract --> App: ExtractedReport(fields, warnings)
+App -> State: state.extracted = ExtractedReport
+
+App -> Normalize: normalize(extracted)
+Normalize --> App: NormalizedReport(observations, warnings)
+App -> State: state.normalized = NormalizedReport
+
+App -> Map: to_standard_panel(normalized, panel)
+Map --> App: StandardPanel(data, warnings)
+App -> State: state.mapped = StandardPanel
+
+App -> Validate: validate_jsonschema(mapped.data, panel_code)
+Validate --> App: ValidationResult(is_valid, issues)
+App -> State: state.validation = ValidationResult
+App -> App: build PipelineResult from state
+
+@enduml

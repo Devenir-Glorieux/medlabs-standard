@@ -39,6 +39,60 @@ _OBSERVATION_CODE_MAP: dict[str, dict[str, str]] = {
         "code": "777-3",
         "display": "Platelets [#/volume] in Blood",
     },
+    "mcv": {
+        "system": "LOINC",
+        "code": "787-2",
+        "display": "MCV [Entitic volume] by Automated count",
+    },
+    "mch": {
+        "system": "LOINC",
+        "code": "785-6",
+        "display": "MCH [Entitic mass] by Automated count",
+    },
+    "mchc": {
+        "system": "LOINC",
+        "code": "786-4",
+        "display": "MCHC [Mass/volume] by Automated count",
+    },
+    "rdw": {"system": "LOINC", "code": "788-0", "display": "Erythrocyte distribution width"},
+    "mpv": {
+        "system": "LOINC",
+        "code": "32623-1",
+        "display": "Platelet mean volume [Entitic volume] in Blood",
+    },
+    "pdw": {"system": "LOCAL", "code": "PDW", "display": "Platelet distribution width"},
+    "pct": {"system": "LOCAL", "code": "PCT", "display": "Plateletcrit"},
+    "neutrophils_abs": {
+        "system": "LOCAL",
+        "code": "NEUT_ABS",
+        "display": "Neutrophils (absolute)",
+    },
+    "neutrophils_pct": {
+        "system": "LOCAL",
+        "code": "NEUT_PCT",
+        "display": "Neutrophils (%)",
+    },
+    "lymphocytes_abs": {
+        "system": "LOCAL",
+        "code": "LYMPH_ABS",
+        "display": "Lymphocytes (absolute)",
+    },
+    "lymphocytes_pct": {
+        "system": "LOCAL",
+        "code": "LYMPH_PCT",
+        "display": "Lymphocytes (%)",
+    },
+    "monocytes_abs": {"system": "LOCAL", "code": "MONO_ABS", "display": "Monocytes (absolute)"},
+    "monocytes_pct": {"system": "LOCAL", "code": "MONO_PCT", "display": "Monocytes (%)"},
+    "eosinophils_abs": {
+        "system": "LOCAL",
+        "code": "EO_ABS",
+        "display": "Eosinophils (absolute)",
+    },
+    "eosinophils_pct": {"system": "LOCAL", "code": "EO_PCT", "display": "Eosinophils (%)"},
+    "basophils_abs": {"system": "LOCAL", "code": "BASO_ABS", "display": "Basophils (absolute)"},
+    "basophils_pct": {"system": "LOCAL", "code": "BASO_PCT", "display": "Basophils (%)"},
+    "esr": {"system": "LOINC", "code": "4537-7", "display": "Erythrocyte sedimentation rate"},
     "glucose": {
         "system": "LOINC",
         "code": "2345-7",
@@ -72,13 +126,166 @@ _OBSERVATION_CODE_MAP: dict[str, dict[str, str]] = {
         "display": "Specific gravity",
     },
     "ph": {"system": "LOCAL", "code": "PH", "display": "pH"},
+    "urine_ph": {"system": "LOCAL", "code": "URINE_PH", "display": "Urine pH"},
     "protein": {"system": "LOCAL", "code": "PROTEIN", "display": "Protein"},
+    "urine_protein": {"system": "LOCAL", "code": "URINE_PROTEIN", "display": "Urine protein"},
+    "urine_glucose": {"system": "LOCAL", "code": "URINE_GLUCOSE", "display": "Urine glucose"},
     "ketones": {"system": "LOCAL", "code": "KETONES", "display": "Ketones"},
+    "urine_bilirubin": {
+        "system": "LOCAL",
+        "code": "URINE_BILIRUBIN",
+        "display": "Urine bilirubin",
+    },
+    "urine_urobilinogen": {
+        "system": "LOCAL",
+        "code": "URINE_UROBILINOGEN",
+        "display": "Urine urobilinogen",
+    },
     "nitrite": {"system": "LOCAL", "code": "NITRITE", "display": "Nitrite"},
     "leukocyte_esterase": {
         "system": "LOCAL",
         "code": "LEUK_ESTERASE",
         "display": "Leukocyte esterase",
+    },
+    "urine_color": {"system": "LOCAL", "code": "URINE_COLOR", "display": "Urine color"},
+    "urine_clarity": {"system": "LOCAL", "code": "URINE_CLARITY", "display": "Urine clarity"},
+    "urine_leukocytes": {
+        "system": "LOCAL",
+        "code": "URINE_LEUKOCYTES",
+        "display": "Urine leukocytes",
+    },
+    "urine_erythrocytes": {
+        "system": "LOCAL",
+        "code": "URINE_ERYTHROCYTES",
+        "display": "Urine erythrocytes",
+    },
+    "urine_non_lysed_erythrocytes": {
+        "system": "LOCAL",
+        "code": "URINE_NON_LYSED_ERYTHROCYTES",
+        "display": "Urine non-lysed erythrocytes",
+    },
+    "urine_hemoglobin": {
+        "system": "LOCAL",
+        "code": "URINE_HEMOGLOBIN",
+        "display": "Urine hemoglobin",
+    },
+    "urine_leukocyte_clumps": {
+        "system": "LOCAL",
+        "code": "URINE_LEUKOCYTE_CLUMPS",
+        "display": "Urine leukocyte clumps",
+    },
+    "epithelial_cells": {
+        "system": "LOCAL",
+        "code": "EPITHELIAL_CELLS",
+        "display": "Epithelial cells",
+    },
+    "squamous_epithelial_cells": {
+        "system": "LOCAL",
+        "code": "SQUAMOUS_EPITHELIAL_CELLS",
+        "display": "Squamous epithelial cells",
+    },
+    "non_squamous_epithelial_cells": {
+        "system": "LOCAL",
+        "code": "NON_SQUAMOUS_EPITHELIAL_CELLS",
+        "display": "Non-squamous epithelial cells",
+    },
+    "transitional_epithelial_cells": {
+        "system": "LOCAL",
+        "code": "TRANSITIONAL_EPITHELIAL_CELLS",
+        "display": "Transitional epithelial cells",
+    },
+    "renal_tubular_epithelial_cells": {
+        "system": "LOCAL",
+        "code": "RENAL_TUBULAR_EPITHELIAL_CELLS",
+        "display": "Renal tubular epithelial cells",
+    },
+    "casts": {"system": "LOCAL", "code": "CASTS", "display": "Casts"},
+    "hyaline_casts": {"system": "LOCAL", "code": "HYALINE_CASTS", "display": "Hyaline casts"},
+    "non_hyaline_casts": {
+        "system": "LOCAL",
+        "code": "NON_HYALINE_CASTS",
+        "display": "Non-hyaline casts",
+    },
+    "bacteria": {"system": "LOCAL", "code": "BACTERIA", "display": "Bacteria"},
+    "oxalate_crystals": {
+        "system": "LOCAL",
+        "code": "OXALATE_CRYSTALS",
+        "display": "Oxalate crystals",
+    },
+    "yeast": {"system": "LOCAL", "code": "YEAST", "display": "Yeast-like cells"},
+    "sperm": {"system": "LOCAL", "code": "SPERM", "display": "Spermatozoa"},
+    "mucus": {"system": "LOCAL", "code": "MUCUS", "display": "Mucus"},
+}
+
+_PANEL_ALLOWED_CODES: dict[str, set[str]] = {
+    "CBC": {
+        "wbc",
+        "rbc",
+        "hemoglobin",
+        "hematocrit",
+        "platelets",
+        "mcv",
+        "mch",
+        "mchc",
+        "rdw",
+        "mpv",
+        "pct",
+        "pdw",
+        "neutrophils_abs",
+        "neutrophils_pct",
+        "lymphocytes_abs",
+        "lymphocytes_pct",
+        "monocytes_abs",
+        "monocytes_pct",
+        "eosinophils_abs",
+        "eosinophils_pct",
+        "basophils_abs",
+        "basophils_pct",
+        "esr",
+    },
+    "BIOCHEM": {"glucose", "creatinine", "urea", "alt", "ast"},
+    "URINALYSIS": {
+        "color",
+        "appearance",
+        "specific_gravity",
+        "ph",
+        "urine_ph",
+        "protein",
+        "urine_protein",
+        "urine_glucose",
+        "ketones",
+        "nitrite",
+        "leukocyte_esterase",
+        "urine_color",
+        "urine_clarity",
+        "urine_bilirubin",
+        "urine_urobilinogen",
+        "urine_leukocytes",
+        "urine_erythrocytes",
+        "urine_non_lysed_erythrocytes",
+        "urine_hemoglobin",
+        "urine_leukocyte_clumps",
+        "epithelial_cells",
+        "squamous_epithelial_cells",
+        "non_squamous_epithelial_cells",
+        "transitional_epithelial_cells",
+        "renal_tubular_epithelial_cells",
+        "casts",
+        "hyaline_casts",
+        "non_hyaline_casts",
+        "bacteria",
+        "oxalate_crystals",
+        "yeast",
+        "sperm",
+        "mucus",
+    },
+}
+
+_PANEL_CODE_ALIASES: dict[str, dict[str, str]] = {
+    "CBC": {"leukocytes": "wbc", "erythrocytes": "rbc"},
+    "URINALYSIS": {
+        "leukocytes": "urine_leukocytes",
+        "erythrocytes": "urine_erythrocytes",
     },
 }
 
@@ -92,6 +299,9 @@ def _normalize_panel_code(panel: str) -> str:
         "COMPLETE BLOOD COUNT": "CBC",
         "BIOCHEMISTRY PANEL": "BIOCHEM",
         "URINALYSIS PANEL": "URINALYSIS",
+        "ОБЩИЙ АНАЛИЗ КРОВИ": "CBC",
+        "БИОХИМИЯ": "BIOCHEM",
+        "ОБЩИЙ АНАЛИЗ МОЧИ": "URINALYSIS",
     }
     return alias_map.get(normalized, normalized)
 
@@ -166,15 +376,15 @@ def _interpretation(observation: NormalizedObservation) -> str:
     return "unknown"
 
 
-def _observation_code(observation: NormalizedObservation) -> dict[str, str]:
-    coding = _OBSERVATION_CODE_MAP.get(observation.code)
+def _observation_code(*, observation_code: str, source_name: str) -> dict[str, str]:
+    coding = _OBSERVATION_CODE_MAP.get(observation_code)
     if coding:
         return coding
 
-    display = observation.source_name or observation.code.replace("_", " ").title()
+    display = source_name or observation_code.replace("_", " ").title()
     return {
         "system": "LOCAL",
-        "code": observation.code.upper(),
+        "code": observation_code.upper(),
         "display": display,
     }
 
@@ -190,9 +400,73 @@ def _observation_value(
     return str(value)
 
 
+def _resolve_code_for_panel(observation: NormalizedObservation, *, panel_code: str) -> str:
+    if observation.code == "leukocytes":
+        if observation.unit == "10*9/L":
+            return "wbc"
+        if observation.unit == "{cells}/uL":
+            return "urine_leukocytes"
+
+    if observation.code == "erythrocytes":
+        if observation.unit == "10*12/L":
+            return "rbc"
+        if observation.unit == "{cells}/uL":
+            return "urine_erythrocytes"
+
+    panel_aliases = _PANEL_CODE_ALIASES.get(panel_code, {})
+    aliased_code = panel_aliases.get(observation.code)
+    if aliased_code:
+        return aliased_code
+
+    return observation.code
+
+
+def _filter_observations_for_panel(
+    observations: list[NormalizedObservation],
+    *,
+    panel_code: str,
+) -> tuple[list[tuple[NormalizedObservation, str]], list[str]]:
+    allowed_codes = _PANEL_ALLOWED_CODES.get(panel_code)
+    resolved_observations = [
+        (observation, _resolve_code_for_panel(observation, panel_code=panel_code))
+        for observation in observations
+    ]
+    if not allowed_codes:
+        return resolved_observations, []
+
+    included: list[tuple[NormalizedObservation, str]] = []
+    dropped: list[str] = []
+    for observation, resolved_code in resolved_observations:
+        if resolved_code in allowed_codes:
+            included.append((observation, resolved_code))
+            continue
+        dropped.append(observation.source_name or observation.code)
+
+    if not dropped:
+        return included, []
+
+    if not included:
+        return resolved_observations, [
+            (
+                f"Panel filter for '{panel_code}' matched nothing, "
+                "kept all observations as fallback"
+            )
+        ]
+
+    sample = ", ".join(dropped[:3])
+    suffix = "..." if len(dropped) > 3 else ""
+    return included, [
+        (
+            f"Filtered {len(dropped)} observations outside panel '{panel_code}': "
+            f"{sample}{suffix}"
+        )
+    ]
+
+
 def _observation_payload(
     observation: NormalizedObservation,
     *,
+    observation_code: str,
     panel_code: str,
     index: int,
     document_meta: dict[str, Any],
@@ -200,7 +474,10 @@ def _observation_payload(
     payload: dict[str, Any] = {
         "id": f"obs-{panel_code.lower()}-{index:03d}-{uuid4().hex[:6]}",
         "resource_type": "observation",
-        "code": _observation_code(observation),
+        "code": _observation_code(
+            observation_code=observation_code,
+            source_name=observation.source_name,
+        ),
         "value": _observation_value(observation),
         "interpretation": _interpretation(observation),
         "status": "final",
@@ -234,14 +511,21 @@ def to_standard_panel(
     if panel_code not in _PANEL_DEFINITIONS:
         warnings.append(f"Unknown panel '{panel}', using LOCAL metadata")
 
+    filtered_observations, filter_warnings = _filter_observations_for_panel(
+        report.observations,
+        panel_code=panel_code,
+    )
+    warnings.extend(filter_warnings)
+
     observations = [
         _observation_payload(
-            observation,
+            observation=observation,
+            observation_code=observation_code,
             panel_code=panel_code,
             index=index + 1,
             document_meta=report.document.meta,
         )
-        for index, observation in enumerate(report.observations)
+        for index, (observation, observation_code) in enumerate(filtered_observations)
     ]
 
     payload: dict[str, Any] = {

@@ -45,3 +45,35 @@ def test_normalize_adds_warning_for_unparsed_reference() -> None:
     assert result.observations[0].value == 4.9
     assert result.warnings
     assert "unparsed reference range" in result.warnings[0]
+
+
+def test_normalize_supports_helix_units_and_aliases() -> None:
+    report = ExtractedReport(
+        document=RawDocument(text="dummy"),
+        fields=[
+            ExtractedField(
+                name_raw="Нейтрофильные гранулоциты (NEUT)",
+                value_raw="2,83",
+                unit_raw="10^9 клеток/л",
+                ref_raw="1,53-4,98",
+            ),
+            ExtractedField(
+                name_raw="Лейкоциты в моче",
+                value_raw="0,6",
+                unit_raw="ед/мкл",
+            ),
+        ],
+    )
+
+    result = normalize(report)
+
+    assert len(result.observations) == 2
+    neutrophils = result.observations[0]
+    urine_leukocytes = result.observations[1]
+    assert neutrophils.code == "neutrophils_abs"
+    assert neutrophils.value == 2.83
+    assert neutrophils.unit == "10*9/L"
+    assert neutrophils.ref_low == 1.53
+    assert neutrophils.ref_high == 4.98
+    assert urine_leukocytes.code == "urine_leukocytes"
+    assert urine_leukocytes.unit == "{cells}/uL"
