@@ -1,7 +1,41 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
 [project]
 name = "medlabs-standard"
 version = "0.1.0"
-description = "Add your description here"
+description = "MedLabs Standard schemas and Python SDK"
 readme = "README.md"
-requires-python = ">=3.13"
-dependencies = []
+requires-python = ">=3.10"
+dependencies = [
+  "jsonschema>=4.23.0",
+  "pypdf>=5.0.0",
+  "structlog>=24.4.0",
+]
+
+[project.optional-dependencies]
+providers = [
+  "pydantic-settings>=2.7.1",
+  "python-dotenv>=1.0.1",
+  "langfuse>=2.49.0",
+  "openai>=1.61.0",
+]
+dev = [
+  "pytest>=8.3.4",
+  "ruff>=0.9.6",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+
+[tool.pytest.ini_options]
+pythonpath = ["sdk/python"]
+testpaths = ["tests"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["sdk/python/medlabs_sdk"]

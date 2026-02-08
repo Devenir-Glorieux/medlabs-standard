@@ -1,6 +1,9 @@
+from __future__ import annotations
+
 from abc import ABC, abstractmethod
 
 from medlabs_sdk.core.models import ExtractedReport, RawDocument
+
 
 class Extractor(ABC):
     @abstractmethod

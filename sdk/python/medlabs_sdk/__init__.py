@@ -1,25 +1,17 @@
+from medlabs_sdk.contracts import LLMClient, PromptProvider, StructuredGenerator, Tracer
 from medlabs_sdk.core.extract import AIExtractor, Extractor, RegexExtractor
-from medlabs_sdk.core.ingest import Ingestor, PdfIngestor, TextIngestor
+from medlabs_sdk.core.ingest import Ingestor, PdfIngestError, PdfIngestor, TextIngestor
 from medlabs_sdk.core.map import to_standard_panel
 from medlabs_sdk.core.models import (
-
     ExtractedField,
     ExtractedReport,
     NormalizedObservation,
     NormalizedReport,
+    PipelineResult,
     RawDocument,
     StandardPanel,
+    ValidationIssue,
     ValidationResult,
-)
-from medlabs_sdk.core.models_pydantic import (
-    ExtractedFieldModel,
-    ExtractedReportModel,
-    MedlabsBaseModel,
-    NormalizedObservationModel,
-    NormalizedReportModel,
-    RawDocumentModel,
-    StandardPanelModel,
-    ValidationResultModel,
 )
 from medlabs_sdk.core.normalize import (
     canonicalize_name,
@@ -29,13 +21,23 @@ from medlabs_sdk.core.normalize import (
     parse_range,
 )
 from medlabs_sdk.core.validate import validate_jsonschema, validate_rules
-from medlabs_sdk.llm import LLMClient
+from medlabs_sdk.logger import configure_logger, get_logger
+from medlabs_sdk.pipeline import MedLabsPipeline
+from medlabs_sdk.providers import (
+    LangfuseOpenAIClient,
+    LangfusePromptProvider,
+    LangfuseTracer,
+    NoopTracer,
+    OpenAIClient,
+    PromptedLLMClient,
+)
 
 __all__ = [
     "AIExtractor",
     "Extractor",
     "RegexExtractor",
     "Ingestor",
+    "PdfIngestError",
     "PdfIngestor",
     "TextIngestor",
     "to_standard_panel",
@@ -43,17 +45,11 @@ __all__ = [
     "ExtractedReport",
     "NormalizedObservation",
     "NormalizedReport",
+    "PipelineResult",
     "RawDocument",
     "StandardPanel",
+    "ValidationIssue",
     "ValidationResult",
-    "ExtractedFieldModel",
-    "ExtractedReportModel",
-    "MedlabsBaseModel",
-    "NormalizedObservationModel",
-    "NormalizedReportModel",
-    "RawDocumentModel",
-    "StandardPanelModel",
-    "ValidationResultModel",
     "canonicalize_name",
     "normalize",
     "normalize_unit",
@@ -62,4 +58,16 @@ __all__ = [
     "validate_jsonschema",
     "validate_rules",
     "LLMClient",
+    "PromptProvider",
+    "StructuredGenerator",
+    "Tracer",
+    "MedLabsPipeline",
+    "configure_logger",
+    "get_logger",
+    "LangfuseOpenAIClient",
+    "LangfusePromptProvider",
+    "LangfuseTracer",
+    "NoopTracer",
+    "OpenAIClient",
+    "PromptedLLMClient",
 ]
