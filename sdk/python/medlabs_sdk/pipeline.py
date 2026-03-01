@@ -66,17 +66,52 @@ class PipelineNode:
     edges: tuple[PipelineEdge, ...] = ()
 
 
+@dataclass(frozen=True)
+class PipelineRuntimeConfig:
+    llm_client: LLMClient
+    prompt_name: str
+    prompt_version: str
+    tracer: Tracer
+    schema_dir: Path | None
+    log_level: str
+
+
 class MedLabsPipeline:
     def __init__(
         self,
         *,
-        llm_client: LLMClient,
-        prompt_name: str,
-        prompt_version: str,
+        llm_client: LLMClient | None = None,
+        prompt_name: str | None = None,
+        prompt_version: str | None = None,
         tracer: Tracer | None = None,
+        settings: MedLabsSettings | None = None,
         schema_dir: str | Path | None = None,
-        log_level: str = "INFO",
+        log_level: str | None = None,
     ) -> None:
+        if llm_client is None:
+            runtime = self._runtime_from_settings(settings=settings)
+            llm_client = runtime.llm_client
+            prompt_name = runtime.prompt_name
+            prompt_version = runtime.prompt_version
+            tracer = tracer or runtime.tracer
+            if schema_dir is None:
+                schema_dir = runtime.schema_dir
+            if log_level is None:
+                log_level = runtime.log_level
+        else:
+            if not prompt_name or not prompt_version:
+                raise RuntimeError(
+                    "When `llm_client` is passed explicitly, set both "
+                    "`prompt_name` and `prompt_version`."
+                )
+            if log_level is None:
+                log_level = "INFO"
+
+        if prompt_name is None or prompt_version is None:
+            raise RuntimeError("Pipeline prompt configuration is incomplete.")
+        if log_level is None:
+            raise RuntimeError("Pipeline log level configuration is incomplete.")
+
         configure_logger(log_level)
         self.logger = get_logger()
         self.tracer = tracer or NoopTracer()
@@ -95,19 +130,35 @@ class MedLabsPipeline:
         self._assert_workflow_is_valid()
 
     @classmethod
-    def from_env(cls) -> MedLabsPipeline:
+    def with_settings(cls, settings: MedLabsSettings) -> MedLabsPipeline:
+        return cls(settings=settings)
+
+    @classmethod
+    def from_settings(cls, settings: MedLabsSettings) -> MedLabsPipeline:
+        """Backward-compatible alias. Prefer `with_settings` or `MedLabsPipeline()`."""
+        return cls.with_settings(settings)
+
+    @staticmethod
+    def _load_settings(settings: MedLabsSettings | None = None) -> MedLabsSettings:
+        if settings is not None:
+            return settings
         try:
             from medlabs_sdk.config import MedLabsSettings
         except ImportError as exc:
             raise RuntimeError(
-                "Install provider extras to build pipeline from env: "
+                "Install provider extras for default pipeline configuration: "
                 "`uv sync --extra providers`"
             ) from exc
 
-        return cls.from_settings(MedLabsSettings())
+        return MedLabsSettings()
 
     @classmethod
-    def from_settings(cls, settings: MedLabsSettings) -> MedLabsPipeline:
+    def _runtime_from_settings(
+        cls,
+        *,
+        settings: MedLabsSettings | None = None,
+    ) -> PipelineRuntimeConfig:
+        resolved_settings = cls._load_settings(settings=settings)
         try:
             from medlabs_sdk.providers import (
                 LangfusePromptProvider,
@@ -124,44 +175,48 @@ class MedLabsPipeline:
 
         prompt_provider = None
         has_langfuse_credentials = all(
-            [settings.langfuse_public_key, settings.langfuse_secret_key, settings.langfuse_host]
+            [
+                resolved_settings.langfuse_public_key,
+                resolved_settings.langfuse_secret_key,
+                resolved_settings.langfuse_host,
+            ]
         )
-        if settings.enable_langfuse_prompts and has_langfuse_credentials:
+        if resolved_settings.enable_langfuse_prompts and has_langfuse_credentials:
             prompt_provider = LangfusePromptProvider(
-                public_key=settings.langfuse_public_key,
-                secret_key=settings.langfuse_secret_key,
-                host=settings.langfuse_host,
+                public_key=resolved_settings.langfuse_public_key,
+                secret_key=resolved_settings.langfuse_secret_key,
+                host=resolved_settings.langfuse_host,
             )
 
         generator = OpenAIClient(
-            model=settings.openai_model,
-            api_key=settings.openai_api_key,
-            base_url=settings.openai_base_url,
+            model=resolved_settings.openai_model,
+            api_key=resolved_settings.openai_api_key,
+            base_url=resolved_settings.openai_base_url,
         )
         llm_client = PromptedLLMClient(
             prompt_provider=prompt_provider,
             generator=generator,
-            fallback_prompt=settings.prompt_fallback,
-            strict_prompt_provider=settings.fail_on_prompt_error,
+            fallback_prompt=resolved_settings.prompt_fallback,
+            strict_prompt_provider=resolved_settings.fail_on_prompt_error,
         )
 
         tracer: Tracer
-        if settings.enable_tracing and has_langfuse_credentials:
+        if resolved_settings.enable_tracing and has_langfuse_credentials:
             tracer = LangfuseTracer(
-                public_key=settings.langfuse_public_key,
-                secret_key=settings.langfuse_secret_key,
-                host=settings.langfuse_host,
+                public_key=resolved_settings.langfuse_public_key,
+                secret_key=resolved_settings.langfuse_secret_key,
+                host=resolved_settings.langfuse_host,
             )
         else:
             tracer = NoopTracer()
 
-        return cls(
+        return PipelineRuntimeConfig(
             llm_client=llm_client,
-            prompt_name=settings.prompt_name,
-            prompt_version=settings.prompt_version,
+            prompt_name=resolved_settings.prompt_name,
+            prompt_version=resolved_settings.prompt_version,
             tracer=tracer,
-            schema_dir=settings.schema_dir_path(),
-            log_level=settings.log_level,
+            schema_dir=resolved_settings.schema_dir_path(),
+            log_level=resolved_settings.log_level,
         )
 
     def parse_text(

@@ -3,16 +3,18 @@ import json
 from pathlib import Path
 
 from medlabs_sdk import MedLabsPipeline, get_logger
+from medlabs_sdk.config import discover_dotenv_files
 from pydantic import Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 logger = get_logger()
 
+
 class ExampleCliSettings(BaseSettings):
     sample_pdf: str | None = Field(default=None, alias="MEDLABS_SAMPLE_PDF")
 
     model_config = SettingsConfigDict(
-        env_file=".env",
+        env_file=discover_dotenv_files(),
         env_file_encoding="utf-8",
         extra="ignore",
         case_sensitive=False,
@@ -49,7 +51,7 @@ def main() -> None:
     if not pdf_path.exists():
         raise RuntimeError(f"PDF file not found: {pdf_path}")
 
-    pipeline = MedLabsPipeline.from_env()
+    pipeline = MedLabsPipeline()
     result = pipeline.parse_pdf(
         str(pdf_path),
         panel=args.panel,
