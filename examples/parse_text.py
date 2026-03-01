@@ -30,7 +30,7 @@ def load_text(input_file: str | None) -> str:
 def main() -> None:
     args = parse_args()
 
-    pipeline = MedLabsPipeline.from_env()
+    pipeline = MedLabsPipeline()
     result = pipeline.parse_text(
         load_text(args.input_file),
         panel=args.panel,

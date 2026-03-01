@@ -4,8 +4,8 @@ build-backend = "hatchling.build"
 
 [project]
 name = "medlabs-standard"
-version = "0.1.0"
-description = "MedLabs Standard schemas and Python SDK"
+version = "0.1.1"
+description = "Open JSON standard and Python SDK for deterministic lab report normalization"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [

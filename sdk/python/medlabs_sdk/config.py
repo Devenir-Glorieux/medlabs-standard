@@ -12,16 +12,37 @@ from pydantic_settings import (
 )
 
 
+def discover_dotenv_files(
+    start_dir: str | Path | None = None,
+    *,
+    file_names: tuple[str, ...] = (".env", ".env.local"),
+) -> tuple[Path, ...]:
+    """Find dotenv files from filesystem root down to current directory.
+
+    Files that are closer to the working directory are loaded later and therefore
+    override values from upper-level directories.
+    """
+
+    base_dir = Path(start_dir).expanduser().resolve() if start_dir else Path.cwd().resolve()
+    discovered: list[Path] = []
+    for directory in reversed((base_dir, *base_dir.parents)):
+        for file_name in file_names:
+            candidate = directory / file_name
+            if candidate.is_file():
+                discovered.append(candidate)
+    return tuple(discovered)
+
+
 class MedLabsSettings(BaseSettings):
-    """App-layer configuration loaded from `.env` and environment variables.
+    """App-layer configuration loaded from dotenv hierarchy and environment variables.
 
     Source order is explicitly configured as:
     1) init kwargs
-    2) `.env`
+    2) `.env`/`.env.local` discovered in directory hierarchy
     3) process environment
     4) file secrets
 
-    This makes `.env` higher priority than system environment variables.
+    This keeps dotenv values higher priority than system environment variables.
     """
 
     openai_api_key: str = Field(alias="OPENAI_API_KEY")
@@ -48,7 +69,7 @@ class MedLabsSettings(BaseSettings):
     sample_pdf: str | None = Field(default=None, alias="MEDLABS_SAMPLE_PDF")
 
     model_config = SettingsConfigDict(
-        env_file=".env",
+        env_file=None,
         env_file_encoding="utf-8",
         extra="ignore",
         case_sensitive=False,
@@ -63,10 +84,15 @@ class MedLabsSettings(BaseSettings):
         dotenv_settings: DotEnvSettingsSource,
         file_secret_settings: PydanticBaseSettingsSource,
     ) -> tuple[PydanticBaseSettingsSource, ...]:
-        del cls, settings_cls
+        del cls, dotenv_settings
+        dotenv_hierarchy = DotEnvSettingsSource(
+            settings_cls,
+            env_file=discover_dotenv_files(),
+            env_file_encoding="utf-8",
+        )
         return (
             init_settings,
-            dotenv_settings,
+            dotenv_hierarchy,
             env_settings,
             file_secret_settings,
         )

@@ -7,7 +7,7 @@
 ```python
 from medlabs_sdk import MedLabsPipeline
 
-pipeline = MedLabsPipeline.from_env()
+pipeline = MedLabsPipeline()
 result = pipeline.parse_text(...)
 ```
 
@@ -17,6 +17,9 @@ result = pipeline.parse_text(...)
 uv sync --extra providers --extra dev
 cp .env.example .env
 ```
+
+`MedLabsPipeline()` автоматически читает переменные из окружения процесса и `.env/.env.local`
+по иерархии директорий.
 
 ## 1) Валидация golden fixtures стандарта
 
